@@ -1,0 +1,127 @@
+EffectDef {
+ MinFPS 30
+ Emitors {
+  EmitorDef emitor1_debris {
+   ShapeType Point
+   ShapeSize 0 0 0
+   ConeAngle 0 45 0
+   MaxNum 80
+   BirthRate 600
+   BirthRateRND 0
+   Angles 4.02484 -5.1884 5.37889
+   LocalTransform 0
+   Material "{64FAE9008FF3A574}Graphics/Particles/materials/enviroment/snow_1.emat"
+   CenterY 0.533
+   SizeMultiplier 0.4
+   SizeRND 0.1
+   RandomRotDir 1
+   RotMultiplier 720
+   VelAngle 0
+   RandomAngle 1
+   Sort 0
+   Velocity 1
+   VelocityRND 2
+   GravityMultiply 1
+   GravityMultiplyRND 0
+   AnimOnce 1
+   AnimFPS 30
+   LifetimeByAnim 0
+   RandomFrame 0
+   LifeTime 0.1
+   LifeTimeRND 0.4
+   Color {
+    0 0.962 0.962 0.9684 1 0.9937 1 1
+   }
+   Alpha {
+    0 1 0.2505 0.24074 1 0
+   }
+   RotationSpeed {
+    0 0 1 1
+   }
+   Size {
+    0 0.11574 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+  EmitorDef Dust {
+   MaxNum 3
+   BirthRate 200
+   BirthRateVel 0
+   Offset 0 0 0
+   Angles 0 0 0
+   Material "{DD4F6AF883F92F41}Graphics/Particles/materials/smoke/smoke_dust_01b.emat"
+   CenterY 0
+   ScaleX 1
+   SizeMultiplier 1
+   SizeRND 0.5
+   RandomRotDir 0
+   RotMultiplier 0
+   VelAngle 0
+   RandomAngle 1
+   Velocity 0.4
+   VelocityRND 0.2
+   AirResistance 0.2
+   AirResistanceRND 0.3
+   GravityMultiply 0.01
+   Wind 1
+   AnimFPS 30
+   LifetimeByAnim 0
+   RandomFrame 0
+   LifeTime 0.5
+   LifeTimeRND 0.5
+   Color {
+    0 0.8797 0.8924 0.8861 1 1 1 1
+   }
+   Alpha {
+    0 1 0.125 0.25 1 0
+   }
+   RotationSpeed {
+    0 1 1 0
+   }
+   Size {
+    0 0.12025 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+  EmitorDef Dust_cloned {
+   MaxNum 3
+   BirthRate 200
+   BirthRateRND 0
+   BirthRateVel 0
+   Offset 0 0 0
+   Angles 0 0 0
+   Material "{DD4F6AF883F92F41}Graphics/Particles/materials/smoke/smoke_dust_01b.emat"
+   CenterY 0
+   ScaleX 1
+   SizeMultiplier 1
+   SizeRND 0.5
+   RandomRotDir 1
+   RotMultiplier 40
+   VelAngle 0
+   RandomAngle 0
+   Velocity 0.4
+   VelocityRND 0.2
+   AirResistance 0.2
+   GravityMultiply 0.03
+   Wind 1
+   AnimFPS 0
+   LifetimeByAnim 0
+   RandomFrame 1
+   LifeTime 1
+   LifeTimeRND 0.5
+   Color {
+    0 0.7342 0.7152 0.7152 1 1 1 1
+   }
+   Alpha {
+    0 0 0.15 0.25 1 0
+   }
+   Size {
+    0 0.12025 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+ }
+}

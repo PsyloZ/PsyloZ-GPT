@@ -1,0 +1,286 @@
+EffectDef {
+ MinFPS 30
+ Emitors {
+  EmitorDef emitor1_debris_dirt {
+   ShapeType Box
+   ShapeSize 0.1 0.1 0
+   ConeAngle 360 15 0
+   MaxNum 20
+   BirthRate 200
+   BirthRateRND 0
+   Angles 0 0 20
+   Material "{64FAE9008FF3A574}Graphics/Particles/materials/enviroment/snow_1.emat"
+   CenterY 0.497
+   SizeMultiplier 0.5
+   SizeRND 0.3
+   RandomRotDir 1
+   RotMultiplier 20
+   VelAngle 0
+   RandomAngle 1
+   Sort 0
+   Velocity 3
+   VelocityRND 1
+   AirResistance 0.5
+   AirResistanceRND 0.5
+   GravityMultiply 0.5
+   GravityMultiplyRND 0
+   Wind 1
+   AnimOnce 1
+   AnimFPS 20
+   LifetimeByAnim 1
+   RandomFrame 1
+   LifeTime 0.7
+   LifeTimeRND 0.3
+   Color {
+    0 0.6431 0.6431 0.7137 1 0.6431 0.6431 0.7137
+   }
+   Alpha {
+    0 0.26852 0.8755 0.26389 1 0
+   }
+   RotationSpeed {
+    0 0.52083 1 1
+   }
+   Size {
+    0 0.19583 0.1245 0.50417 0.49748 0.47917 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+   ColorMast {
+    0 1 1 1 1 1 1 1
+   }
+   SizeMast {
+    0 1 1 0.2375
+   }
+  }
+  EmitorDef emitor1_debris_dirt_anim {
+   ShapeType Point
+   ShapeSize 0 0 0
+   ConeAngle 360 15 0
+   MaxNum 10
+   BirthRate 100
+   BirthRateRND 0
+   Angles 0 0 20
+   Material "{64FAE9008FF3A574}Graphics/Particles/materials/enviroment/snow_1.emat"
+   CenterY 0.497
+   SizeMultiplier 0.5
+   SizeRND 0.3
+   RandomRotDir 1
+   RotMultiplier 20
+   VelAngle 0
+   RandomAngle 0
+   Sort 0
+   Velocity 3
+   VelocityRND 0.5
+   AirResistance 0.5
+   AirResistanceRND 0.5
+   GravityMultiply 0.5
+   GravityMultiplyRND 0
+   Wind 1
+   AnimOnce 1
+   AnimFPS 19
+   LifetimeByAnim 0
+   RandomFrame 0
+   LifeTime 0.7
+   LifeTimeRND 0.3
+   Color {
+    0 0.6431 0.6431 0.7137 1 0.6431 0.6431 0.7137
+   }
+   Alpha {
+    0 0.23611 0.87349 0.24074 1 0
+   }
+   RotationSpeed {
+    0 0.52083 1 1
+   }
+   Size {
+    0 0.19583 0.1245 0.50417 0.49748 0.47917 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+   ColorMast {
+    0 1 1 1 1 1 1 1
+   }
+   SizeMast {
+    0 1 1 0.2375
+   }
+  }
+  EmitorDef emitor1_debris_dirt_2 {
+   ShapeType Point
+   ShapeSize 0 0 0
+   ConeAngle 360 10 0
+   MaxNum 10
+   BirthRate 100
+   BirthRateRND 0
+   Angles 0 0 20
+   Material "{3A12C043307E2B7B}Graphics/Particles/materials/enviroment/snow_2.emat"
+   CenterY 0.477
+   SizeMultiplier 0.5
+   SizeRND 0.2
+   RandomRotDir 1
+   RotMultiplier 20
+   VelAngle 0
+   RandomAngle 1
+   Sort 0
+   Velocity 3
+   VelocityRND 0.5
+   AirResistance 0.5
+   AirResistanceRND 0.5
+   GravityMultiply 0.5
+   GravityMultiplyRND 0
+   Wind 1
+   AnimOnce 1
+   AnimFPS 21
+   LifetimeByAnim 0
+   RandomFrame 0
+   LifeTime 0.7
+   LifeTimeRND 0.3
+   Color {
+    0 0.6431 0.6431 0.7137 1 0.6431 0.6431 0.7137
+   }
+   Alpha {
+    0 0.23611 0.8498 0.24074 1 0
+   }
+   RotationSpeed {
+    0 0.29167 1 1
+   }
+   Size {
+    0 0.50698 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+   ColorMast {
+    0 1 1 1 1 1 1 1
+   }
+   SizeMast {
+    0 1 1 0.26667
+   }
+  }
+  EmitorDef emitor2_dust {
+   ShapeType Box
+   ShapeSize 0.1 0.1 0.7
+   ConeAngle 360 30 0
+   MaxNum 25
+   BirthRate 500
+   BirthRateRND 0
+   Angles 0 0 30
+   Material "{8E25684854DAB008}Graphics/Particles/materials/smoke/steam_small_cook_01.emat"
+   SizeMultiplier 1.6
+   SizeRND 0.1
+   RandomRotDir 1
+   RotMultiplier 15
+   VelAngle 0
+   RandomAngle 1
+   Sort 1
+   Velocity 5
+   VelocityRND 6
+   AirResistance 10
+   AirResistanceRND 10
+   GravityMultiply 0.3
+   GravityMultiplyRND 0.05
+   Wind 1
+   AnimOnce 0
+   AnimFPS 30
+   LifetimeByAnim 0
+   LifeTime 2
+   LifeTimeRND 0.7
+   Color {
+    0 1 1 1 1 1 1 1
+   }
+   Alpha {
+    0 0 0.15524 0.16204 0.23337 0.18056 0.49093 0.10185 1 0
+   }
+   RotationSpeed {
+    0 0 1 1
+   }
+   Size {
+    0 0 0.48942 0.40741 1 1
+   }
+   EffectTime 0.5
+   Repeat 0
+   BRateMast {
+    0 0 0.00252 1 1 1
+   }
+  }
+  EmitorDef emitor3_cone {
+   ShapeType Point
+   ShapeSize 0 0 0
+   ConeAngle 360 0 40
+   MaxNum 2
+   BirthRate 0
+   BirthRateRND 0
+   Material "{70CE85062FA7388F}Graphics/Particles/materials/smoke/smoke_dust_05.emat"
+   ScaleX 0.414
+   SizeMultiplier 0.5
+   SizeRND 0.5
+   RandomRotDir 0
+   RotMultiplier 0
+   VelAngle 1
+   RandomAngle 0
+   Sort 0
+   Velocity 1.5
+   VelocityRND 0.2
+   GravityMultiply 0.1
+   Wind 1
+   AnimOnce 0
+   AnimFPS 30
+   LifetimeByAnim 0
+   LifeTime 0.1
+   LifeTimeRND 0.1
+   Color {
+    0 1 1 1 0.075 0.5529 0.5529 0.5529 1 0 0 0
+   }
+   Alpha {
+    0 1 0.25 0.75 1 0
+   }
+   RotationSpeed {
+    0 0 1 1
+   }
+   Size {
+    0 0.25 1 1
+   }
+   EffectTime 0.05
+   Repeat 0
+  }
+  EmitorDef emitor4_donut {
+   ShapeType Point
+   ShapeSize 0 0 0
+   ConeAngle 360 120 150
+   MaxNum 40
+   BirthRate 0
+   BirthRateRND 0
+   Material "{DD4F6AF883F92F41}Graphics/Particles/materials/smoke/smoke_dust_01b.emat"
+   SizeMultiplier 0.4
+   SizeRND 0.1
+   RandomRotDir 1
+   RotMultiplier 45
+   VelAngle 0
+   RandomAngle 1
+   Sort 0
+   Velocity 4
+   VelocityRND 3
+   AirResistance 10
+   AirResistanceRND 5
+   GravityMultiply 0.5
+   GravityMultiplyRND 0.1
+   Wind 1
+   AnimOnce 0
+   AnimFPS 30
+   LifetimeByAnim 0
+   LifeTime 0.3
+   LifeTimeRND 1
+   Color {
+    0 1 1 1 0.05 0.3381 0.349 0.349 1 0 0 0
+   }
+   Alpha {
+    0 0.55 0.125 0.25 1 0
+   }
+   RotationSpeed {
+    0 0 1 1
+   }
+   Size {
+    0 0.05 0.05 0.8 1 1
+   }
+   EffectTime 0.05
+   Repeat 0
+  }
+ }
+}

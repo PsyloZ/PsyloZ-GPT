@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{6D0D8229DB205015}Graphics/Particles/sprites/boat_drops_1_color.edds"
+ Author "9206"
+ ChangeDate 574796002
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "boat_drops_1_color.tga"
+   Conversion DXTCompression
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

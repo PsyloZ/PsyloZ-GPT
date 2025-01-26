@@ -1,0 +1,18 @@
+Particle {
+ AlbedoMap "{48CE51390B06552C}Graphics/Particles/sprites/boat_splash_1_color.edds" 
+ Color 1 1 1 0
+ Diffuse 0.6902 0.6902 0.6902 1
+ Ambient 0.149 0.149 0.149 1
+ Emissive 0.149 0.149 0.149 1
+ ZBias 16
+ Cull none
+ Sort translucent
+ CastShadow 1
+ ReceiveShadow 1
+ NormalMap "{C420BEC855744EE0}Graphics/Particles/sprites/boat_splash_1_normal.edds" 
+ TileU 4
+ TileV 8
+ Softness 0.228
+ LightScale 0.797
+ BidirLightScale 0
+}

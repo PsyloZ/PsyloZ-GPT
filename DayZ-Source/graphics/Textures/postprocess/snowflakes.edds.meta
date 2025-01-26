@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{5E0C47CFE6379D4E}Graphics/Textures/postprocess/snowflakes.edds"
+ Author "luke-pc"
+ ChangeDate -1273319281
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "snowflakes.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

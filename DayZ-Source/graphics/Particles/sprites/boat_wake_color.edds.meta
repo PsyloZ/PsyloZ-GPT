@@ -1,0 +1,19 @@
+MetaFileClass {
+ Name "{13E2B3424FDB10B1}Graphics/Particles/sprites/boat_wake_color.tga"
+ Author "9206"
+ ChangeDate -523489054
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "boat_wake_color.tga"
+   FormatCompress Best
+   Conversion DXTCompression
+   TiledTexture 0
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

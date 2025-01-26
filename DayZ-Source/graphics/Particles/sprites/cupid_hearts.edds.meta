@@ -1,0 +1,21 @@
+MetaFileClass {
+ Name "{83DEEB282D7046FE}Graphics/Particles/sprites/cupid_hearts.tga"
+ Author "3643"
+ ChangeDate -1695305845
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "cupid_hearts.tga"
+   FormatCompress Best
+   RemoveMips 1
+   Conversion DXTCompression
+   MipMapFilter Kaiser
+   TiledTexture 0
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

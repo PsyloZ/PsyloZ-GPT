@@ -1,0 +1,14 @@
+Particle {
+ AlbedoMap "{C9EA49D2662AFB38}Graphics/Particles/sprites/snow_1_color.edds" 
+ Color 0.8196 0.8196 0.8196 1
+ Diffuse 0.5098 0.5098 0.5098 1
+ Ambient 0.1686 0.1686 0.4235 1
+ Emissive 0 0 0 1
+ ZBias -8
+ CastShadow 1
+ ReceiveShadow 1
+ NormalMap "{5432518EAD0218BE}Graphics/Particles/sprites/snow_1_normal.edds" 
+ TileU 4
+ TileV 4
+ BidirLightScale 0
+}

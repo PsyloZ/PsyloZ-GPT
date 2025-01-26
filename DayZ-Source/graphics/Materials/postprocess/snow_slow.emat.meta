@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{09D3CD7A6FB3C667}Graphics/Materials/postprocess/snow_luke.emat"
+ Author "luke-pc"
+ ChangeDate 169177231
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass LINUX : PC {
+  }
+ }
+}

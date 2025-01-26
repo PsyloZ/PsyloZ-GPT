@@ -1,0 +1,20 @@
+MetaFileClass {
+ Name "{E0AD9B9B08DF1932}Graphics/Particles/sprites/Fishing_splash_color_5.tga"
+ Author "9206"
+ ChangeDate 2010476671
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "Fishing_splash_color_5.tga"
+   FormatCompress Best
+   Conversion DXTCompression
+   ConversionQuality 0.026
+   TiledTexture 0
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

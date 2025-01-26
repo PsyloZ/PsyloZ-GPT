@@ -1,0 +1,22 @@
+{
+    "compress": {
+        "exclude": [
+        ],
+        "include": [
+        ]
+    },
+    "headers": [
+        {
+            "name": "product",
+            "value": "dayz"
+        },
+        {
+            "name": "prefix",
+            "value": "graphics"
+        },
+        {
+            "name": "version",
+            "value": "111307"
+        }
+    ]
+}

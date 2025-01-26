@@ -1,0 +1,13 @@
+Particle {
+ AlbedoMap "{92533FB71F323B1F}Graphics/Particles/sprites/cupid_hearts_full.edds" 
+ Color 0.4471 0.4471 0.4471 1
+ Diffuse 0.549 0.549 0.549 1
+ Ambient 0.3922 0.3922 0.3922 1
+ Emissive 0.302 0.302 0.302 0
+ ZBias 3.848
+ TileU 2
+ TileV 2
+ Softness 2
+ CameraBlendFar 0.812
+ LightScale 0.987
+}

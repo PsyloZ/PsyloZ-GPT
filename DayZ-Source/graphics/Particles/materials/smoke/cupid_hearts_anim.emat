@@ -1,0 +1,13 @@
+Particle {
+ AlbedoMap "{83DEEB282D7046FE}Graphics/Particles/sprites/cupid_hearts.edds" 
+ Diffuse 0.7216 0.7216 0.7216 1
+ Ambient 0.3922 0.3922 0.3922 1
+ Emissive 0.4667 0.4667 0.4667 0
+ ZBias 3.848
+ NormalMap "{94ACD68D2987BFA2}Graphics/Particles/sprites/cloud_01_b_nm.edds" 
+ TileU 2
+ TileV 2
+ Softness 2
+ CameraBlendFar 0.609
+ LightScale 0.987
+}

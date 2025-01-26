@@ -1,0 +1,102 @@
+FrameWidgetClass HudDebugFrameWidget {
+ position 0.35205 -1.352
+ size 1 1
+ halign right_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  WindowWidgetClass StatusWindowWidget {
+   visible 1
+   clipchildren 1
+   position 0.0044 0.01
+   size 329 190
+   halign right_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   scaled 0
+   scriptclass ""
+   style rover_sim_black_2
+   "title visible" 0
+   "text color" 0.6353 0.6353 0.6353 1
+   "disabled text color" 0.6353 0.6353 0.6353 1
+   {
+    TextWidgetClass WindowLabel {
+     disabled 0
+     position 0 0.02
+     size 1 0.09
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     draggable 0
+     style Bold
+     text "STATUS"
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "exact text size" 22
+     "size to text h" 0
+     "size to text v" 0
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass PanelWidget0 {
+     color 0.6353 0.6353 0.6353 1
+     position 0 0.12
+     size 0.94604 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     style editor_quad
+    }
+    TextListboxWidgetClass NamesListboxWidget {
+     visible 1
+     disabled 1
+     clipchildren 0
+     position 0.015 0.14
+     size 0.3 0.84
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     style Default
+     "title visible" 0
+     colums ""
+     lines 7
+     font "gui/fonts/MetronBook16"
+     "text color" 0.9451 0.9451 0.9451 1
+    }
+    TextListboxWidgetClass ValuesListboxWidget {
+     visible 1
+     disabled 1
+     clipchildren 0
+     position 0.32 0.14
+     size 0.66 0.84
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     style Default
+     "no focus" 0
+     "title visible" 0
+     colums ""
+     lines 7
+     font "gui/fonts/MetronBook16"
+     "text color" 0.6353 0.6353 0.6353 1
+     "disabled text color" 0.6353 0.6353 0.6353 1
+    }
+   }
+  }
+ }
+}

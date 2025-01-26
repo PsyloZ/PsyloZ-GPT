@@ -1,0 +1,22 @@
+{
+    "compress": {
+        "exclude": [
+        ],
+        "include": [
+        ]
+    },
+    "headers": [
+        {
+            "name": "product",
+            "value": "undefined"
+        },
+        {
+            "name": "prefix",
+            "value": "Core"
+        },
+        {
+            "name": "version",
+            "value": "111313"
+        }
+    ]
+}

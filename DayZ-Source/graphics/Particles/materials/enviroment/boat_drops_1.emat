@@ -1,0 +1,16 @@
+Particle {
+ AlbedoMap "{6D0D8229DB205015}Graphics/Particles/sprites/boat_drops_1_color.edds" 
+ Diffuse 0.6902 0.6902 0.6902 1
+ Ambient 0.149 0.149 0.149 1
+ Emissive 0.149 0.149 0.149 1
+ ZBias 16
+ Cull none
+ Sort translucent
+ CastShadow 1
+ ReceiveShadow 1
+ NormalMap "{C04AD849F51AA672}Graphics/Particles/sprites/boat_drops_1_normal.edds" 
+ TileU 4
+ TileV 2
+ LightScale 0.797
+ BidirLightScale 0
+}

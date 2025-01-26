@@ -1,0 +1,151 @@
+EffectDef {
+ MinFPS 30
+ Emitors {
+  EmitorDef smoke_fast_right {
+   ShapeType Cone
+   ConeAngle 360 0 50
+   MaxNum 60
+   BirthRate 15
+   Offset 0 0 0
+   Angles 0 -70 0
+   LocalTransform 0
+   Material "{8E25684854DAB008}Graphics/Particles/materials/smoke/steam_small_cook_01.emat"
+   SizeMultiplier 3
+   SizeRND 2
+   RandomRotDir 1
+   RotMultiplier 20
+   StretchMultiplier 1
+   StreakFullUV 0
+   VelAngle 0
+   RandomAngle 1
+   Sort 0
+   Velocity 10
+   VelocityRND 10
+   VelAffect 0
+   AirResistance 5
+   AirResistanceRND 10
+   GravityMultiply 0
+   GravityMultiplyRND 0.1
+   Restitution 0
+   Spring 0.0001
+   Wind 1
+   RandomFrame 1
+   LifeTime 5
+   LifeTimeRND 2
+   Color {
+    0 1 1 1 1 1 1 1
+   }
+   Alpha {
+    0 0.46759 0.46875 0.125 1 0
+   }
+   RotationSpeed {
+    0 1 1 0.1962
+   }
+   Size {
+    0 0 0.025 0.75 1 1
+   }
+   EffectTime 2
+   Repeat 0
+   ColorMast {
+    0 1 1 1 1 1 1 1
+   }
+   SizeMast {
+    0 0.15 0.19909 0.25926 1 0.25463
+   }
+   AirResistanceMast {
+    0 1 1 1
+   }
+   VelocityMast {
+    0 0.15 0.2 0.25 1 0.5
+   }
+  }
+  EmitorDef explo_fire_right_01 {
+   ShapeType Box
+   ShapeSize 0.2 0.3 0
+   ConeAngle 360 0 10
+   MaxNum 120
+   BirthRate 140
+   Offset 0 0 0
+   Angles 0 61.00003 0
+   Material "{64FAE9008FF3A574}Graphics/Particles/materials/enviroment/snow_1.emat"
+   CenterY 0.355
+   ScaleX 1
+   SizeMultiplier 2
+   SizeRND 0.2
+   RandomRotDir 0
+   StreakFullUV 0
+   VelAngle 0
+   RandomAngle 1
+   Velocity 2
+   VelocityRND 1.5
+   VelAffect 0
+   AirResistanceRND 0.75
+   GravityMultiply 0.6
+   Wind 0
+   AnimOnce 1
+   AnimFPS 45
+   LifeTime 0.5
+   LifeTimeRND 0.05
+   Color {
+    0 0.4583 0.4583 0.5093 1 0.4491 0.4491 0.5093
+   }
+   Alpha {
+    0 0.17593 0.19556 1 0.47127 0.70833 1 0
+   }
+   Size {
+    0 0.16667 0.59123 0.47685 1 0.83333
+   }
+   EffectTime 2
+   Repeat 0
+   ColorMast {
+    0 1 1 1 1 1 1 1
+   }
+   SizeMast {
+    0 1 0.14869 0.99367 0.24841 1 0.29637 0.7963 0.35 1 0.39163 0.74074 0.44859 0.71296 0.5 1 0.55393 0.8287 0.65222 0.7963 0.7999 0.85648 0.85 1 0.97278 0.85648 1 0.87963
+   }
+   BRateMast {
+    0 0.76389 0.13911 0.75926 0.25 1 0.2999 0.75926 0.34905 0.98734 0.49955 0.98734 0.6497 0.75 0.79435 0.78241 0.85 1 0.8997 0.68981 1 0.71759
+   }
+  }
+  EmitorDef explo_fire_right_02 {
+   ShapeType Cone
+   ShapeSize 0 0 0
+   ConeAngle 360 40 60
+   MaxNum 60
+   BirthRate 200
+   Offset 0 0 0
+   Angles 6.42342 -20.87957 -2.29775
+   Material "{64FAE9008FF3A574}Graphics/Particles/materials/enviroment/snow_1.emat"
+   CenterY 0.548
+   SizeMultiplier 0.1
+   SizeRND 0.02
+   RandomRotDir 0
+   RandomAngle 1
+   Velocity 2
+   VelocityRND 2
+   GravityMultiply 0.75
+   AnimOnce 1
+   AnimFPS 20
+   LifetimeByAnim 1
+   LifeTime 0.2
+   LifeTimeRND 0.05
+   Color {
+    0 1 1 1 1 1 1 1
+   }
+   Alpha {
+    0 1 1 1
+   }
+   Size {
+    0 0.44444 1 1
+   }
+   EffectTime 2
+   Repeat 0
+   SizeMast {
+    0 1 0.15 0.55 0.25 0.5 0.3 0 0.35 1 0.5 1 0.55 0 0.8 0 0.85131 0.99367 0.9 0 1 0
+   }
+   BRateMast {
+    0 1 0.15 0 0.25 1 0.3 0 0.35 1 0.50227 0.99367 0.8 0 0.8495 0.99367 0.9 0 1 0
+   }
+  }
+ }
+}

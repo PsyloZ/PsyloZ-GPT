@@ -1,0 +1,18 @@
+MetaFileClass {
+ Name "{C9EA49D2662AFB38}Graphics/Particles/sprites/snow_1_color.edds"
+ Author "9206"
+ ChangeDate 839168232
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "snow_1_color.tga"
+   FormatCompress Best
+   Conversion DXTCompression
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

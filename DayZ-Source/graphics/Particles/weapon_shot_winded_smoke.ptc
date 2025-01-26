@@ -1,0 +1,44 @@
+EffectDef {
+ MinFPS 30
+ Emitors {
+  EmitorDef smoke_front_lasting_2_wind {
+   ShapeType Box
+   ShapeSize 0 -2 0
+   ConeAngle 360 0 90
+   MaxNum 2
+   BirthRate 999
+   Offset -1 0 0
+   Angles 0 0 -90
+   LocalTransform 0
+   Material "{68CF090B6BE4ED52}Graphics/Particles/materials/smoke/steam_random_weapon_01.emat"
+   SizeMultiplier 2.5
+   SizeRND 0.3
+   RandomRotDir 1
+   RotMultiplier 15
+   StretchMultiplier 1
+   RandomAngle 1
+   Velocity 0.4
+   VelocityRND 0.3
+   AirResistance 0
+   AirResistanceRND 0
+   Wind 1
+   RandomFrame 1
+   LifeTime 0.4
+   LifeTimeRND 0.2
+   Color {
+    0 0.2744 0.2622 0.2683 1 0.2378 0.2256 0.2256
+   }
+   Alpha {
+    0 0 0.07515 0.44937 0.21354 0.18987 1 0
+   }
+   RotationSpeed {
+    0 1 1 0
+   }
+   Size {
+    0 0 0.09747 0.11392 1 0.22152
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+ }
+}

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{3A12C043307E2B7B}Graphics/Particles/materials/enviroment/snow_2.emat"
+ Author "9206"
+ ChangeDate 1062514916
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass LINUX : PC {
+  }
+ }
+}

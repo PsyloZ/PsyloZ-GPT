@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{109D2D60127DFF28}Graphics/Materials/postprocess/ghost.emat"
+ Author "7621"
+ ChangeDate 1069314257
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass LINUX : PC {
+  }
+ }
+}

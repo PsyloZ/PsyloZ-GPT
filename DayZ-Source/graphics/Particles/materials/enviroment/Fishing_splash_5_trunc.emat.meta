@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{45993BC76A70A010}Graphics/Particles/materials/enviroment/Fishing_splash_5_trunc.emat"
+ Author "9206"
+ ChangeDate -1011027750
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass LINUX : PC {
+  }
+ }
+}

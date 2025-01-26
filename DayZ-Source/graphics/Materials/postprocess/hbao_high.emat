@@ -1,0 +1,8 @@
+HBAOEffect {
+ RadiusMeters 6
+ Intensity 10
+ BlurSharpness 16
+ NdotVBias 0.35
+ SmallScaleAO 1.3
+ NumSamples 4
+}
