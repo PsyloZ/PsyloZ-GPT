@@ -1,97 +1,123 @@
 class TerritoryHQ: ItemBase
-{	
+{
+	// == Variables existantes ==
 	static const int RPC_SYNC_AUTH_LIST = 1396355;		
 	static autoptr array<TerritoryHQ> All_HQs = {};
 	
-	protected ref array<string> m_AuthorizationList = {};   
+	protected ref array<string> m_AuthorizationList = {};	
 	
-	// a numerical representation of how much the base has decayed. since the amount
-	// of nails is always an integer value
 	protected float m_DecaySubValue;
-
 	protected TerritoryTrigger m_TerritoryTrigger;
-
+	
 #ifdef GameLabs
 	protected ref _Event m_TerritoryHQEvent;
 #endif
-
-
+			
 	protected int m_MaxPlayers = 5;
 	protected int m_PlaceTimestamp = int.MAX;
 	protected float m_UpkeepCost;
 	protected float m_Radius = RearmedConstants.BASE_RADIUS;
 	protected bool m_IsUpgrading;
 
-	// Variables pour le rafraîchissement
-	protected bool m_RefresherActive = false;
-	protected int m_RefresherTimeRemaining = 0;
-	protected int m_RefreshTimeCounter = 0;
-	protected int m_RefresherFrequency = GameConstants.REFRESHER_FREQUENCY_DEFAULT;
-	protected int m_RefresherMaxDuration = GameConstants.REFRESHER_MAX_DURATION_DEFAULT;
+	// == [AJOUT TOTEM] Variables pour la logique de rafraîchissement ==
+	// Inspiré de TerritoryFlag / Totem
+	bool m_RefresherActive;
+	bool m_RefresherActiveLocal;
+	bool m_RefresherInitialized;
+	int m_RefresherTimeRemaining;
+	int m_RefreshTimeCounter;
 
+	protected int m_FlagRefresherFrequency = GameConstants.REFRESHER_FREQUENCY_DEFAULT;
+	protected int m_FlagRefresherMaxDuration = GameConstants.REFRESHER_MAX_DURATION_DEFAULT;
+
+	// ================== CONSTRUCTEUR ==================
 	void TerritoryHQ()
 	{
-		if (!All_HQs) {
+		if (!All_HQs)
+		{
 			All_HQs = {};
 		}
 		All_HQs.Insert(this);
-		
+
+		// [AJOUT TOTEM] Initialisation des variables TOTEM
+		m_RefresherActive       = false;
+		m_RefresherActiveLocal  = false;
+		m_RefresherInitialized  = false;
+		m_RefresherTimeRemaining= 0;
+		m_RefreshTimeCounter    = 0;
+
 		RegisterNetSyncVariableInt("m_MaxPlayers");
 		RegisterNetSyncVariableInt("m_PlaceTimestamp");
 		RegisterNetSyncVariableFloat("m_UpkeepCost");
 		RegisterNetSyncVariableFloat("m_Radius");
 		RegisterNetSyncVariableBool("m_IsUpgrading");
+		if ( GetCEApi() )
+		{
+			InitRefresherData();
+		}
+		// [AJOUT TOTEM] Synchronise l'état du rafraîchisseur
 		RegisterNetSyncVariableBool("m_RefresherActive");
-		
+
 #ifdef SERVER
-		InitRefresherData();
 		SetSynchDirty();
-#endif		
+#endif
 	}
 
 	void ~TerritoryHQ()
 	{
-		if (All_HQs) {
+		if (All_HQs)
+		{
 			All_HQs.RemoveItem(this);
 		}
 		
 		delete m_AuthorizationList;
 		
 #ifdef SERVER
-		if (g_Game && m_TerritoryTrigger) {
+		if (g_Game && m_TerritoryTrigger)
+		{
 			g_Game.ObjectDelete(m_TerritoryTrigger);
 		}
 #endif
 		
 #ifdef GameLabs
-		if (GetGameLabs()) {
+		if (GetGameLabs())
+		{
 			GetGameLabs().RemoveEvent(m_TerritoryHQEvent);		
 		}
+		
 		delete m_TerritoryHQEvent;
 #endif
 	}
-	
+
+	// ================== INITIALISATION TOTEM ==================
+	// [AJOUT TOTEM] Appelé depuis EEInit si CEApi est dispo
 	void InitRefresherData()
 	{
-		if (GetCEApi()) {
-			int frequency = GetCEApi().GetCEGlobalInt("FlagRefreshFrequency");
-			int max_duration = GetCEApi().GetCEGlobalInt("FlagRefreshMaxDuration");
+		if (!m_RefresherInitialized && GetCEApi())
+		{
+			int frequency   = GetCEApi().GetCEGlobalInt("FlagRefreshFrequency");
+			int max_duration= GetCEApi().GetCEGlobalInt("FlagRefreshMaxDuration");
 			
-			if (frequency > 0) {
-				m_RefresherFrequency = frequency;
+			if (frequency > 0)
+			{
+				m_FlagRefresherFrequency = frequency;
 			}
-			if (max_duration > 0) {
-				m_RefresherMaxDuration = max_duration;
+			if (max_duration > 0)
+			{
+				m_FlagRefresherMaxDuration = max_duration;
 			}
+			m_RefresherInitialized = true;
 		}
 	}
 
+	// ================== EEInit ==================
 	override void EEInit()
 	{
 		super.EEInit();
 		
 #ifdef SERVER
-		if (!IsRuined()) {
+		if (!IsRuined())
+		{
 			m_TerritoryTrigger = TerritoryTrigger.Cast(g_Game.CreateObjectEx("TerritoryTrigger", GetPosition(), ECE_NONE));		
 			m_TerritoryTrigger.SetHQ(this);
 		}
@@ -100,58 +126,158 @@ class TerritoryHQ: ItemBase
 		m_TerritoryHQEvent = new _Event(GetType(), "pennant", this);
 		GetGameLabs().RegisterEvent(m_TerritoryHQEvent);
 #endif
+
+		// [AJOUT TOTEM] Init une première fois
+		
+
 #else
 		ScriptRPC().Send(this, RPC_SYNC_AUTH_LIST, true);
 #endif
 	}
 
+	// ================== OnCEUpdate ==================
 	override void OnCEUpdate()
 	{
 		super.OnCEUpdate();
-
-		int timeElapsed = Math.Round(m_ElapsedSinceLastUpdate);
-
-		// Gestion du rafraîchissement
-		if (m_RefresherTimeRemaining > 0) {
-			m_RefreshTimeCounter += timeElapsed;
-
-			if (m_RefreshTimeCounter >= m_RefresherFrequency) {
-				if (GetCEApi()) {
-					GetCEApi().RadiusLifetimeReset(GetPosition(), GameConstants.REFRESHER_RADIUS);
-				}
-
-				m_RefresherTimeRemaining = Math.Clamp(m_RefresherTimeRemaining - m_RefreshTimeCounter, 0, m_RefresherMaxDuration);
-				m_RefreshTimeCounter = 0;
-			}
-		}
 		
-		SetRefresherActive(m_RefresherTimeRemaining > 0);
-		if (!m_TerritoryTrigger) {
+		if (!m_TerritoryTrigger)
+		{
 			return;
 		}
-
-		if (m_Radius != m_TerritoryTrigger.GetCollisionRadius()) {
+		
+		if (m_Radius != m_TerritoryTrigger.GetCollisionRadius())
+		{
 			Print("[Kowalski] radius isn't the same size, onceupdate worth");
 			m_TerritoryTrigger.SetRadius(m_Radius);
 		}
 
+#ifdef SERVER
+
+		HandleTotemRefresh();
+#endif
 	}
 
+	// ================== REFRESH LOGIC TOTEM ==================
+	// [AJOUT TOTEM] Gère la logique de rafraîchissement (m_FlagRefresherFrequency, etc.)
+	void HandleTotemRefresh()
+	{
+		int time_elapsed_rounded = Math.Round(m_ElapsedSinceLastUpdate);
 
+		// Seulement si nous avons du "cloud" (nails)
+		if (HasEquity() && m_RefresherTimeRemaining > 0)
+		{
+			m_RefreshTimeCounter += time_elapsed_rounded;
+			if (m_RefreshTimeCounter >= m_FlagRefresherFrequency)
+			{
+				GetCEApi().RadiusLifetimeReset(GetPosition(), GameConstants.REFRESHER_RADIUS);
+
+				// Met à jour le temps restant
+				m_RefresherTimeRemaining = Math.Clamp(m_RefresherTimeRemaining - m_RefreshTimeCounter, 0, m_FlagRefresherMaxDuration);
+
+				m_RefreshTimeCounter = 0;
+
+				// [Optionnel] Si vous voulez animer un drapeau, par ex.:
+				// AnimateFlag( 1 - GetRefresherTime01() );
+			}
+		}
+
+		SetRefresherActive(m_RefresherTimeRemaining > 0);
+	}
+
+	// [AJOUT TOTEM] Active ou désactive l'état "RefresherActive"
 	void SetRefresherActive(bool state)
 	{
-		if (m_RefresherActive != state) {
+		if (m_RefresherActive != state)
+		{
 			m_RefresherActive = state;
 			SetSynchDirty();
+
+			// Sur l'activation, on peut faire un reset final
+			if (m_RefresherActive && HasEquity())
+			{
+				GetCEApi().RadiusLifetimeReset(GetPosition(), GameConstants.REFRESHER_RADIUS);
+			}
 		}
 	}
 
-	void AddRefresherTime(int seconds)
+	// [AJOUT TOTEM] Ajoute du temps au totem via fraction ou en secondes
+	void AddRefresherTime01(float fraction)
 	{
-		m_RefresherTimeRemaining = Math.Clamp(m_RefresherTimeRemaining + seconds, 0, m_RefresherMaxDuration);
-		SetRefresherActive(m_RefresherTimeRemaining > 0);
+		// fraction = 0..1
+		float add_time = fraction * m_FlagRefresherMaxDuration;
+		m_RefresherTimeRemaining = Math.Clamp(m_RefresherTimeRemaining + add_time, 0, m_FlagRefresherMaxDuration);
 	}
-	
+
+	void AddRefresherTimeSeconds(int seconds)
+	{
+		m_RefresherTimeRemaining = Math.Clamp(m_RefresherTimeRemaining + seconds, 0, m_FlagRefresherMaxDuration);
+	}
+
+	// Si on veut un ratio 0..1
+	float GetRefresherTime01()
+	{
+		if (m_FlagRefresherMaxDuration == 0)
+			return 0;
+
+		return m_RefresherTimeRemaining / m_FlagRefresherMaxDuration;
+	}
+
+	// ================== STORE SAVE/LOAD TOTEM ==================
+	override void OnStoreSave(ParamsWriteContext ctx)
+	{
+		super.OnStoreSave(ctx);
+
+		// [AJOUT TOTEM]
+		ctx.Write(m_RefresherTimeRemaining);
+		ctx.Write(m_RefreshTimeCounter);
+		ctx.Write(m_RefresherInitialized);
+		ctx.Write(m_FlagRefresherMaxDuration);
+		ctx.Write(m_RefresherActive);
+	}
+
+	override bool OnStoreLoad(ParamsReadContext ctx, int version)
+	{
+		if (!super.OnStoreLoad(ctx, version))
+		{
+			return false;
+		}
+
+		// [AJOUT TOTEM]
+		if (!ctx.Read(m_RefresherTimeRemaining))
+			return false;
+		if (!ctx.Read(m_RefreshTimeCounter))
+			return false;
+		if (!ctx.Read(m_RefresherInitialized))
+			return false;
+
+		int loaded_max_duration;
+		if (!ctx.Read(loaded_max_duration))
+			return false;
+		if (version >= 118 && !ctx.Read(m_RefresherActive))
+			return false;
+
+		CheckLoadedVariables(loaded_max_duration);
+		return true;
+	}
+
+	override void AfterStoreLoad()
+	{
+		super.AfterStoreLoad();
+		
+		if (!m_RefresherInitialized && GetCEApi())
+		{
+			InitRefresherData();
+		}
+		SetSynchDirty();
+	}
+	// [AJOUT TOTEM] Ajuste le temps restant si le max_duration a changé
+	void CheckLoadedVariables(int loaded_max_duration)
+	{
+		if (loaded_max_duration != m_FlagRefresherMaxDuration && m_FlagRefresherMaxDuration > 0)
+		{
+			m_RefresherTimeRemaining = Math.Round((m_RefresherTimeRemaining * m_FlagRefresherMaxDuration) / loaded_max_duration);
+		}
+	}
 	bool HasEquity()
 	{
 		// Nails are deleted when they hit zero
