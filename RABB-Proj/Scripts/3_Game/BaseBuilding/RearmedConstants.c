@@ -5,7 +5,7 @@ class RearmedConstants: Managed
 	
 	//! Territory Settings
 	static const float DECAY_TIMER_REFRESH = 60.0 * 5.0;
-	static const float BASE_RADIUS = 36.0; // base radius prior to upgrades
+	static const float BASE_RADIUS = 50.0; // base radius prior to upgrades
 	
 	//! Base Settings
 	static const int ROTATION_COOLDOWN = 600; // 10 minutes

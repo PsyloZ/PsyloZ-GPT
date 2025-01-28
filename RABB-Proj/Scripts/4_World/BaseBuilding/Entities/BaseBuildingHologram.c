@@ -315,8 +315,14 @@ class BaseBuildingHologram: Managed
 
 	bool CanPlaceCurrently()
 	{
-		return m_CurrentPlacingMode != PlacementMode.NONE;
-	} 
+        #ifdef AVPPAdminTools
+		MissionBaseWorld mission = MissionBaseWorld.Cast(g_Game.GetMission());
+		if (mission && mission.VPPAT_AdminToolsToggled())
+        {
+			return true;
+        }
+		#endif
+		return m_CurrentPlacingMode != PlacementMode.NONE;	} 
 	
 	PlacementMode GetCurrentPlacingMode()
 	{

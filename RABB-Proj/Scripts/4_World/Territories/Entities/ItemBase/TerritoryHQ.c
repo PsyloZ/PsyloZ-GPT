@@ -226,7 +226,9 @@ class TerritoryHQ: ItemBase
 	override void OnStoreSave(ParamsWriteContext ctx)
 	{
 		super.OnStoreSave(ctx);
-
+		ctx.Write(m_AuthorizationList);
+		ctx.Write(m_DecaySubValue);
+		ctx.Write(m_PlaceTimestamp);
 		// [AJOUT TOTEM]
 		ctx.Write(m_RefresherTimeRemaining);
 		ctx.Write(m_RefreshTimeCounter);
@@ -235,13 +237,19 @@ class TerritoryHQ: ItemBase
 		ctx.Write(m_RefresherActive);
 	}
 
+
 	override bool OnStoreLoad(ParamsReadContext ctx, int version)
 	{
 		if (!super.OnStoreLoad(ctx, version))
 		{
 			return false;
 		}
-
+		if (!ctx.Read(m_AuthorizationList))
+			return false;
+		if (!ctx.Read(m_DecaySubValue))
+			return false;
+		if (!ctx.Read(m_PlaceTimestamp))
+		return false;
 		// [AJOUT TOTEM]
 		if (!ctx.Read(m_RefresherTimeRemaining))
 			return false;
@@ -257,6 +265,7 @@ class TerritoryHQ: ItemBase
 			return false;
 
 		CheckLoadedVariables(loaded_max_duration);
+		
 		return true;
 	}
 
@@ -510,22 +519,9 @@ class TerritoryHQ: ItemBase
 		AddAction(ActionTerritoryClearAuthorization);
 	}
 	
-	override void OnStoreSave(ParamsWriteContext ctx)
-	{
-		super.OnStoreSave(ctx);
-		ctx.Write(m_AuthorizationList);
-		ctx.Write(m_DecaySubValue);
-		ctx.Write(m_PlaceTimestamp);
-	}
 	
-	override bool OnStoreLoad(ParamsReadContext ctx, int version)
-	{
-		if (!super.OnStoreLoad(ctx, version)) {
-			return false;
-		}
-		
-		return ctx.Read(m_AuthorizationList) && ctx.Read(m_DecaySubValue) && ctx.Read(m_PlaceTimestamp);
-	}
+	
+	
 	
 	override bool CanPutInCargo(EntityAI parent)
 	{
