@@ -1,0 +1,2176 @@
+FrameWidgetClass rootFrame {
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass PanelWidget0 {
+   ignorepointer 1
+   color 0.3922 0.3922 0.3922 0.3922
+   position 0 0
+   size 500 690
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_colorable
+   {
+    TextWidgetClass TextWidget0 {
+     ignorepointer 1
+     size 1 30
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Marker"
+     "text halign" center
+    }
+    CheckBoxWidgetClass chckbx_own_marker {
+     position 0 30
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Can see own Player on the Map"
+    }
+    CheckBoxWidgetClass chckbx_add_death {
+     position 0 50
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Death Marker"
+    }
+    CheckBoxWidgetClass chckbx_death_private {
+     position 0 70
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Death Marker is a private Marker"
+    }
+    CheckBoxWidgetClass chckbx_death_group {
+     position 0 90
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Death Marker is a group Marker (both enabled will prefer group)"
+    }
+    CheckBoxWidgetClass chckbx_death_delete {
+     position 0 110
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Delete old Death markers when placing the new one"
+    }
+    TextWidgetClass TextWidget7 {
+     ignorepointer 1
+     position 0 130
+     size 0.15 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Icon: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_death_icon {
+     position 0.15 130
+     size 0.75 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget8 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_death_browse {
+     position 0 130
+     size 30 30
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass img_death_icon {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       mode blend
+       "src alpha" 1
+       "stretch mode" stretch_w_h
+      }
+      PanelWidgetClass PanelWidget7 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextListboxWidgetClass list_icons {
+     position 0 170
+     size 1 200
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     lines 10
+    }
+    TextWidgetClass TextWidget8 {
+     ignorepointer 1
+     position 0 150
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text " Available Map Icons"
+    }
+    ButtonWidgetClass btn_del_icon {
+     position 0 370
+     size 0.4 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove Icon"
+     {
+      PanelWidgetClass PanelWidget9 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_add_icon {
+     position 0 370
+     size 0.4 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Icon..."
+     {
+      PanelWidgetClass PanelWidget10 {
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ImageWidgetClass img_icon_preview {
+     ignorepointer 1
+     position 0 370
+     size 40 40
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     mode blend
+     "src alpha" 1
+     "stretch mode" stretch_w_h
+    }
+    CheckBoxWidgetClass chckbx_marker_place {
+     position 0 410
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Disable Marker Placement for Players"
+    }
+    CheckBoxWidgetClass chckbx_marker_page {
+     position 0 430
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Disable Marker Overview Page"
+    }
+    TextWidgetClass TextWidget9 {
+     ignorepointer 1
+     position 0 450
+     size 0.7 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Marker Limit in Groups (can increase with Level): "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_marker_limit {
+     position 0.7 450
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget11 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget10 {
+     ignorepointer 1
+     position 0 470
+     size 0.7 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Tactical Ping Lifetime in seconds: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_ping_lifetime {
+     position 0.7 470
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget12 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget11 {
+     ignorepointer 1
+     position 0 490
+     size 0.7 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Max concurrent tactical pings per player: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_ping_limit {
+     position 0.7 490
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget13 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget12 {
+     ignorepointer 1
+     position 0 510
+     size 0.7 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Offline Players 3D Marker max Distance: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_offline_distance {
+     position 0.7 510
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget14 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget13 {
+     ignorepointer 1
+     position 0 530
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text " Display Settings"
+    }
+    XComboBoxWidgetClass combo_marker_config {
+     position 0 550
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    TextWidgetClass TextWidget14 {
+     ignorepointer 1
+     position 0 570
+     size 0.7 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Max Distance in 3D (-1 for infinite): "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_max_distance {
+     position 0.7 570
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget15 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    CheckBoxWidgetClass chckbx_display3d {
+     position 0 590
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Display This type in 3D"
+    }
+    CheckBoxWidgetClass chckbx_displaydistance {
+     position 0 610
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Display the distance to the Marker"
+    }
+    CheckBoxWidgetClass chckbx_displaymap {
+     position 0 630
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Display this Marker Type on the Map"
+    }
+    CheckBoxWidgetClass chckbx_displaycompass {
+     position 0 650
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Display this Marker Type on the compass hud"
+    }
+    CheckBoxWidgetClass chckbx_displaygps {
+     position 0 670
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Display this Marker Type on the GPS / Minimap"
+    }
+   }
+  }
+  PanelWidgetClass PanelWidget1 {
+   visible 1
+   ignorepointer 1
+   color 0.3922 0.3922 0.3922 0.3922
+   position 510 0
+   size 500 510
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_colorable
+   {
+    TextWidgetClass TextWidget1 {
+     ignorepointer 1
+     size 1 30
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Groups"
+     "text halign" center
+    }
+    TextWidgetClass TextWidget15 {
+     ignorepointer 1
+     position 0 30
+     size 0.7 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Delete inactive groups after x Days: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_inactive_del {
+     position 0.7 30
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget16 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    CheckBoxWidgetClass chckbx_invite_action {
+     position 0 50
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Enable invite action (will disable the list of online players!)"
+    }
+    TextWidgetClass TextWidget16 {
+     ignorepointer 1
+     position 0 90
+     size 0.7 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Invite cooldown (s): "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_invite_cooldown {
+     position 0.7 90
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget17 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    CheckBoxWidgetClass chckbx_invite_name {
+     position 0 70
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Display Playername in invite Action text"
+    }
+    CheckBoxWidgetClass chckbx_friendly_fire {
+     position 0 110
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Prevent Friendly Fire"
+    }
+    CheckBoxWidgetClass chckbx_friendly_fire_sub {
+     position 0 130
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Prevent Friendly Fire only when in same subgroup"
+    }
+    CheckBoxWidgetClass chckbx_secondary_group {
+     position 0 150
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Allow players to join a secondary group without leaving their group"
+    }
+    CheckBoxWidgetClass chckbx_rem_temp_restart {
+     position 0 170
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove temporary members on server restart"
+    }
+    CheckBoxWidgetClass chckbx_rem_temp_leave {
+     position 0 190
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove temporary members when player leaves the server"
+    }
+    CheckBoxWidgetClass chckbx_subgroups {
+     position 0 210
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Enable Subgroups"
+    }
+    CheckBoxWidgetClass chckbx_subgroups_player {
+     position 0 230
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Share all player Markers on the Map in different subgroups"
+    }
+    CheckBoxWidgetClass chckbx_subgroups_ping {
+     position 0 250
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Share all pings on the Map in different subgroups"
+    }
+    CheckBoxWidgetClass chckbx_disable_groups {
+     position 0 450
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Disable the Group Page on the Map (this disables group creation)"
+    }
+    TextWidgetClass TextWidget17 {
+     ignorepointer 1
+     position 0 270
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Subgroup Names"
+    }
+    TextListboxWidgetClass list_sub_names {
+     position 0 290
+     size 0.7 150
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     lines 7
+    }
+    ButtonWidgetClass btn_add_subname {
+     position 0 350
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Name"
+     {
+      PanelWidgetClass PanelWidget18 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_del_subname {
+     position 0 370
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove Name"
+     {
+      PanelWidgetClass PanelWidget19 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    EditBoxWidgetClass edit_sub_name {
+     position 0.7 325
+     size 0.3 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget110 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    CheckBoxWidgetClass chckbx_upgrade_bene {
+     position 0 490
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show Upgrade benefits before upgrading to the next level"
+    }
+    CheckBoxWidgetClass chckbx_obfuscate_list {
+     position 0 470
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Obfuscate player names to numbers on group invite page"
+    }
+   }
+  }
+  PanelWidgetClass PanelWidget3 {
+   visible 1
+   ignorepointer 1
+   color 0.3922 0.3922 0.3922 0.3922
+   position 510 520
+   size 500 440
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_colorable
+   {
+    TextWidgetClass TextWidget3 {
+     ignorepointer 1
+     size 1 30
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Map Legend"
+     "text halign" center
+    }
+    CheckBoxWidgetClass chckbx_enable_legend {
+     position 0 30
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Enable Map Legend"
+    }
+    TextWidgetClass TextWidget2 {
+     ignorepointer 1
+     position 0 50
+     size 0.3 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Legend Title: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_legend_title {
+     position 0.3 50
+     size 0.7 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget2 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextListboxWidgetClass list_legend {
+     position 0 70
+     size 1 200
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     lines 10
+    }
+    PanelWidgetClass PanelWidget20 {
+     ignorepointer 1
+     position 375 320
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_b {
+       color 0 0 1 1
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_b {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget111 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget18 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "B: "
+       "text halign" right
+      }
+     }
+    }
+    PanelWidgetClass PanelWidget21 {
+     ignorepointer 1
+     position 250 320
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_g {
+       color 0 1 0 1
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_g {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget22 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget19 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "G: "
+       "text halign" right
+      }
+     }
+    }
+    PanelWidgetClass PanelWidget23 {
+     ignorepointer 1
+     position 125 320
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_r {
+       color 1 0 0 1
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_r {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget24 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget20 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "R: "
+       "text halign" right
+      }
+     }
+    }
+    PanelWidgetClass PanelWidget25 {
+     ignorepointer 1
+     position 0 320
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_a {
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_a {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget26 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget21 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "A: "
+       "text halign" right
+      }
+     }
+    }
+    ButtonWidgetClass btn_add_legend {
+     position 0 270
+     size 0.4 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Legend Item"
+     {
+      PanelWidgetClass PanelWidget112 {
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_del_legend {
+     position 0 270
+     size 0.4 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Delete Legend Item"
+     {
+      PanelWidgetClass PanelWidget27 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget22 {
+     ignorepointer 1
+     position 0 300
+     size 0.15 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Icon: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_legend_icon {
+     position 0.15 300
+     size 0.75 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget28 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ImageWidgetClass legend_icon {
+     ignorepointer 1
+     position 0 290
+     size 30 30
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     mode blend
+     "src alpha" 1
+     "stretch mode" stretch_w_h
+     {
+      ButtonWidgetClass btn_legend_icon {
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       {
+        PanelWidgetClass PanelWidget29 {
+         ignorepointer 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+     }
+    }
+    TextWidgetClass TextWidget23 {
+     ignorepointer 1
+     position 0 370
+     size 0.15 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Text: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_legend_text {
+     position 0.15 370
+     size 0.75 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass legend_text_out {
+       ignorepointer 1
+       position 0 0
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    PanelWidgetClass PanelWidget211 {
+     ignorepointer 1
+     position 0 390
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_a_txt {
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_a_txt {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget212 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget24 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "A: "
+       "text halign" right
+      }
+     }
+    }
+    PanelWidgetClass PanelWidget213 {
+     ignorepointer 1
+     position 125 390
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_r_txt {
+       color 1 0 0 1
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_r_txt {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget214 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget25 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "R: "
+       "text halign" right
+      }
+     }
+    }
+    PanelWidgetClass PanelWidget215 {
+     ignorepointer 1
+     position 250 390
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_g_txt {
+       color 0 1 0 1
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_g_txt {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget216 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget110 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "G: "
+       "text halign" right
+      }
+     }
+    }
+    PanelWidgetClass PanelWidget217 {
+     ignorepointer 1
+     position 375 390
+     size 125 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      SliderWidgetClass slider_b_txt {
+       color 0 0 1 1
+       position 0 0
+       size 125 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       maximum 255
+       "fill in" 1
+      }
+      EditBoxWidgetClass edit_b_txt {
+       position 40 25
+       size 85 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget113 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget111 {
+       ignorepointer 1
+       position 0 25
+       size 40 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "B: "
+       "text halign" right
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass PanelWidget4 {
+   visible 1
+   ignorepointer 1
+   color 0.3922 0.3922 0.3922 0.3922
+   position 1020 0
+   size 500 810
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_colorable
+   {
+    TextWidgetClass TextWidget4 {
+     ignorepointer 1
+     size 1 30
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Items"
+     "text halign" center
+    }
+    CheckBoxWidgetClass chckbx_compass {
+     position 0 30
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Enable Compass"
+    }
+    CheckBoxWidgetClass chckbx_compass_item {
+     position 0 50
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Compass requires one of the items below"
+    }
+    TextListboxWidgetClass list_compass_items {
+     position 0 70
+     size 0.7 100
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    ButtonWidgetClass btn_add_compass {
+     position 0 70
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Item..."
+     {
+      PanelWidgetClass PanelWidget114 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_del_compass {
+     position 0 90
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove Item"
+     {
+      PanelWidgetClass PanelWidget115 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    CheckBoxWidgetClass chckbx_gps {
+     position 0 170
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Enable GPS / Minimap"
+    }
+    CheckBoxWidgetClass chckbx_gps_heading {
+     position 0 190
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show Heading Angle on GPS"
+    }
+    CheckBoxWidgetClass chckbx_gps_speed {
+     position 0 210
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show Speed on GPS"
+    }
+    CheckBoxWidgetClass chckbx_gps_coords {
+     position 0 230
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show Coordinates on GPS"
+    }
+    CheckBoxWidgetClass chckbx_gps_item {
+     position 0 250
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "GPS requires one of the items below"
+    }
+    TextListboxWidgetClass list_gps_items {
+     position 0 270
+     size 0.7 100
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    ButtonWidgetClass btn_add_gps {
+     position 0 270
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Item..."
+     {
+      PanelWidgetClass PanelWidget116 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_del_gps {
+     position 0 290
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove Item"
+     {
+      PanelWidgetClass PanelWidget117 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    CheckBoxWidgetClass chckbx_gps_item_veh {
+     position 0 370
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "GPS only available in Vehicles and not outside of vehicles"
+    }
+    TextListboxWidgetClass list_gps_vehicles {
+     position 0 410
+     size 0.7 100
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    ButtonWidgetClass btn_add_vehicle {
+     position 0 410
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Item..."
+     {
+      PanelWidgetClass PanelWidget118 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_del_vehicle {
+     position 0 430
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove Item"
+     {
+      PanelWidgetClass PanelWidget119 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget26 {
+     ignorepointer 1
+     position 0 390
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Vehicles equiped with a GPS and not requiring a special item"
+    }
+    CheckBoxWidgetClass chckbx_map_item {
+     position 0 510
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Viewing the Map requires an item from the list below"
+    }
+    TextListboxWidgetClass list_map_items {
+     position 0 530
+     size 0.7 100
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    ButtonWidgetClass btn_add_map {
+     position 0 530
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Item..."
+     {
+      PanelWidgetClass PanelWidget1110 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_del_map {
+     position 0 550
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove Item"
+     {
+      PanelWidgetClass PanelWidget1111 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget27 {
+     ignorepointer 1
+     position 0 630
+     size 0.3 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Map not found text: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_map_not_found_txt {
+     position 0.3 630
+     size 0.7 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget30 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget28 {
+     ignorepointer 1
+     position 0 650
+     size 0.3 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Not found image: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_map_not_found_img {
+     position 0.3 650
+     size 0.6 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget31 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_not_found_browse {
+     position 0 650
+     size 0.1 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "..."
+     {
+      PanelWidgetClass PanelWidget32 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    CheckBoxWidgetClass chckbx_group_see_item {
+     position 0 670
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Require an item to see group members"
+    }
+    CheckBoxWidgetClass chckbx_group_seen_item {
+     position 0 690
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Require an item to be seen by other group members"
+    }
+    TextListboxWidgetClass list_see_items {
+     position 0 710
+     size 0.7 100
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    ButtonWidgetClass btn_add_see {
+     position 0 710
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Item..."
+     {
+      PanelWidgetClass PanelWidget1112 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    ButtonWidgetClass btn_del_see {
+     position 0 730
+     size 0.3 20
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Remove Item"
+     {
+      PanelWidgetClass PanelWidget1113 {
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass PanelWidget5 {
+   visible 1
+   ignorepointer 1
+   color 0.3922 0.3922 0.3922 0.3922
+   position 1020 820
+   size 500 110
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_colorable
+   {
+    TextWidgetClass TextWidget5 {
+     ignorepointer 1
+     position 0 0
+     size 1 30
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Misc"
+     "text halign" center
+    }
+    CheckBoxWidgetClass chckbx_playerlist_enable {
+     position 0 30
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Enable the Player list in the top left"
+    }
+    CheckBoxWidgetClass chckbx_playerlist_distance {
+     position 0 50
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show the distance to other players on the playerlist"
+    }
+    CheckBoxWidgetClass chckbx_obfuscate {
+     position 0 70
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Obfuscate Playernames when inviting with random numbers"
+    }
+    CheckBoxWidgetClass chckbx_disable_settings {
+     position 0 90
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Disable Client Settings Page on Map"
+    }
+   }
+  }
+  PanelWidgetClass PanelWidget6 {
+   visible 1
+   ignorepointer 1
+   color 0.3922 0.3922 0.3922 0.3922
+   position 0 700
+   size 500 230
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_colorable
+   {
+    TextWidgetClass TextWidget6 {
+     ignorepointer 1
+     position 0 0
+     size 1 30
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Info Page"
+     "text halign" center
+    }
+    CheckBoxWidgetClass chckbx_survivor_count {
+     position 0 30
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show online player count"
+    }
+    CheckBoxWidgetClass chckbx_cursor_coords {
+     position 0 50
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show the coordinates of the current cursor position"
+    }
+    CheckBoxWidgetClass chckbx_player_pos {
+     position 0 70
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show the current player position"
+    }
+    CheckBoxWidgetClass chckbx_ingame_time {
+     position 0 90
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show the ingame time"
+    }
+    CheckBoxWidgetClass chckbx_real_time {
+     position 0 110
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Show the real time (uses the system time of the server)"
+    }
+    TextWidgetClass TextWidget29 {
+     ignorepointer 1
+     position 0 130
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text " Info panel buttons (up to 6 buttons)"
+    }
+    XComboBoxWidgetClass combo_info_buttons {
+     position 0 150
+     size 1 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     items "Button1;Button2;Button3;Button4;Button5;Button6"
+    }
+    TextWidgetClass TextWidget30 {
+     ignorepointer 1
+     position 0 170
+     size 0.3 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Button Text: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_button_title {
+     position 0.3 170
+     size 0.7 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget33 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget31 {
+     ignorepointer 1
+     position 0 190
+     size 0.3 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Text below button: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_button_subtext {
+     position 0.3 190
+     size 0.7 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget34 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+    TextWidgetClass TextWidget32 {
+     ignorepointer 1
+     position 0 210
+     size 0.3 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Opened link on click: "
+     "text halign" right
+    }
+    EditBoxWidgetClass edit_button_link {
+     position 0.3 210
+     size 0.7 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      PanelWidgetClass PanelWidget35 {
+       ignorepointer 1
+       size 1.1 1.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style LB_Clean_outline
+      }
+     }
+    }
+   }
+  }
+  ButtonWidgetClass ButtonWidget0 {
+   position 5 5
+   size 200 30
+   halign right_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "#lb_save"
+   {
+    PanelWidgetClass PanelWidget36 {
+     ignorepointer 1
+     color 0 1 0 1
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style LB_Clean_outline
+    }
+   }
+  }
+ }
+}

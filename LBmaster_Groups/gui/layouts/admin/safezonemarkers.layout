@@ -1,0 +1,684 @@
+FrameWidgetClass rootFrame {
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass PanelWidget20 {
+   ignorepointer 1
+   color 0.3922 0.3922 0.3922 0.3922
+   size 510 710
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_colorable
+   {
+    PanelWidgetClass PanelWidget0 {
+     ignorepointer 1
+     size 500 700
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style blank
+     {
+      CheckBoxWidgetClass chckbx_enable {
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#lb_ag_admin_enable_safezone_markers"
+      }
+      CheckBoxWidgetClass chckbx_showEverywhere {
+       position 0 25
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#lb_ag_admin_show_markers_everywhere"
+      }
+      CheckBoxWidgetClass chckbx_lineofsight {
+       position 0 50
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#lb_ag_admin_check_line_of_sight"
+      }
+      CheckBoxWidgetClass chckbx_obfuscate {
+       position 0 75
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#lb_ag_admin_obfuscate_playernames"
+      }
+      CheckBoxWidgetClass chckbx_ownTag {
+       position 0 100
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#lb_ag_admin_show_own_player_tag"
+      }
+      TextWidgetClass TextWidget0 {
+       ignorepointer 1
+       position 0 125
+       size 200 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#lb_ag_admin_max_distance"
+       "text halign" right
+      }
+      EditBoxWidgetClass edit_distance {
+       position 0 125
+       size 300 25
+       halign right_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget1 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass TextWidget1 {
+       ignorepointer 1
+       position 0 150
+       size 200 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#lb_ag_admin_player_prefix"
+       "text halign" right
+      }
+      EditBoxWidgetClass edit_player_prefix {
+       position 0 150
+       size 300 25
+       halign right_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget2 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass player_color {
+       ignorepointer 1
+       position 0 175
+       size 200 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#lb_ag_admin_player_prefix_color"
+       "text halign" right
+       {
+        PanelWidgetClass player_color_out {
+         ignorepointer 1
+         size 1 1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget4 {
+       ignorepointer 1
+       position 0 200
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_a {
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_a {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget3 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget2 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "A: "
+         "text halign" right
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget5 {
+       ignorepointer 1
+       position 125 200
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_r {
+         color 1 0 0 1
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_r {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget6 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget3 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "R: "
+         "text halign" right
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget7 {
+       ignorepointer 1
+       position 250 200
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_g {
+         color 0 1 0 1
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_g {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget8 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget4 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "G: "
+         "text halign" right
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget9 {
+       ignorepointer 1
+       position 375 200
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_b {
+         color 0 0 1 1
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_b {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget10 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget5 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "B: "
+         "text halign" right
+        }
+       }
+      }
+      TextWidgetClass TextWidget6 {
+       ignorepointer 1
+       position 0 250
+       size 200 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#lb_ag_admin_admin_prefix"
+       "text halign" right
+      }
+      EditBoxWidgetClass edit_admin_prefix {
+       position 0 250
+       size 300 25
+       halign right_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        PanelWidgetClass PanelWidget11 {
+         ignorepointer 1
+         size 1.1 1.1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      TextWidgetClass admin_color {
+       ignorepointer 1
+       position 0 275
+       size 200 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#lb_ag_admin_admin_prefix_color"
+       "text halign" right
+       {
+        PanelWidgetClass admin_color_out {
+         ignorepointer 1
+         size 1 1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget12 {
+       ignorepointer 1
+       position 0 300
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_a0 {
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_a0 {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget13 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget7 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "A: "
+         "text halign" right
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget14 {
+       ignorepointer 1
+       position 125 300
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_r0 {
+         color 1 0 0 1
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_r0 {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget15 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget8 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "R: "
+         "text halign" right
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget16 {
+       ignorepointer 1
+       position 250 300
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_g0 {
+         color 0 1 0 1
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_g0 {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget17 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget9 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "G: "
+         "text halign" right
+        }
+       }
+      }
+      PanelWidgetClass PanelWidget18 {
+       ignorepointer 1
+       position 375 300
+       size 125 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        SliderWidgetClass slider_b0 {
+         color 0 0 1 1
+         position 0 0
+         size 125 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         maximum 255
+         "fill in" 1
+        }
+        EditBoxWidgetClass edit_b0 {
+         position 40 25
+         size 85 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          PanelWidgetClass PanelWidget19 {
+           ignorepointer 1
+           size 1.1 1.1
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style LB_Clean_outline
+          }
+         }
+        }
+        TextWidgetClass TextWidget10 {
+         ignorepointer 1
+         position 0 25
+         size 40 25
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "B: "
+         "text halign" right
+        }
+       }
+      }
+      ButtonWidgetClass btn_save {
+       position 5 5
+       size 200 25
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#lb_save"
+       {
+        PanelWidgetClass color_save {
+         ignorepointer 1
+         color 0 1 0 1
+         size 1 1
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style LB_Clean_outline
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
