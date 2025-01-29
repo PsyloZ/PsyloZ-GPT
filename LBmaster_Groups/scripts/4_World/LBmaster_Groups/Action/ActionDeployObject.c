@@ -8,7 +8,7 @@ modded class ActionDeployObject {
 			additional = LBTerritoryConfig.Get.GetMaxRadius();
 		}
 #endif
-		if (!(LBAdmins.Get().HasPermission("build.everywhere", player) && LBAdmins.Get().IsActive(player)) && LB_NoBuildConfig.Get.IsInZone(player.GetPosition(), zone, additional)) {
+		if (!(LBAdmins.Get().HasPermission("groups.ignore.nobuildzones", player) && LBAdmins.Get().IsActive(player)) && LB_NoBuildConfig.Get.IsInZone(player.GetPosition(), zone, additional)) {
 			if (LB_NoBuildConfig.Get.ignoreItemsAll.Find(item.GetType()) == -1) {
 				string mess = LBStringTools.MultiTranslateString(LB_NoBuildConfig.Get.notificationMessage);
 				mess.Replace("{pos}", zone.name);
@@ -27,6 +27,11 @@ modded class ActionDeployObject {
 		if (item.IsInherited(TerritoryFlagKit)) {
 			type = 4;
 		}
+		#ifdef RA_BaseBuilding_Scripts
+			if (item.IsInherited(TerritoryHQ_Kit)) {
+				type = 4;
+			}
+		#endif
 		vector pos = player.GetPosition();
 		if (g_Game.IsClient() && player.GetHologramLocal())
 			pos = player.GetHologramLocal().GetProjectionEntity().GetPosition();
@@ -36,5 +41,4 @@ modded class ActionDeployObject {
 		return LBTerritoryConfig.Get.CanExecuteAction(player, pos, type, item);
 	}
 #endif
-
 }

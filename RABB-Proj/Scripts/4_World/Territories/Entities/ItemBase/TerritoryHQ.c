@@ -19,6 +19,12 @@ class TerritoryHQ: ItemBase
 	protected float m_Radius = RearmedConstants.BASE_RADIUS;
 	protected bool m_IsUpgrading;
 
+
+
+	// AJOUT POUR LBMASTER GROUPS DLC
+	string ownerGroupTag = "";
+	int ownerGroupTagHash = 0;
+	bool dismantleWorkaround = false;
 	// == [AJOUT TOTEM] Variables pour la logique de rafraîchissement ==
 	// Inspiré de TerritoryFlag / Totem
 	bool m_RefresherActive;
@@ -56,6 +62,10 @@ class TerritoryHQ: ItemBase
 			InitRefresherData();
 		}
 		// [AJOUT TOTEM] Synchronise l'état du rafraîchisseur
+		#ifdef LBmaster_GroupDLCPlotpole
+			RegisterNetSyncVariableInt("ownerGroupTagHash");
+		#endif
+
 		RegisterNetSyncVariableBool("m_RefresherActive");
 
 #ifdef SERVER
@@ -87,6 +97,26 @@ class TerritoryHQ: ItemBase
 		
 		delete m_TerritoryHQEvent;
 #endif
+	}
+
+
+	static TerritoryHQ FindNearestFlag(vector pos, bool checkOwner = false, bool onlyOwnedByHash = false, int groupTagHash = 0) {
+		float bestDist = -1;
+		TerritoryHQ found = null;
+		if (all_Flags) {
+			foreach (TerritoryHQ flag : all_Flags) {
+				if (!flag || flag.IsHologram())
+					continue;
+				float dist = vector.Distance(flag.GetPosition(), pos);
+				if (bestDist == -1 || dist < bestDist) {
+					if (!checkOwner || (onlyOwnedByHash == (flag.ownerGroupTagHash == groupTagHash))) {
+						found = flag;
+						bestDist = dist;
+					}
+				}
+			}
+		}
+		return found;
 	}
 
 	// ================== INITIALISATION TOTEM ==================
@@ -235,6 +265,9 @@ class TerritoryHQ: ItemBase
 		ctx.Write(m_RefresherInitialized);
 		ctx.Write(m_FlagRefresherMaxDuration);
 		ctx.Write(m_RefresherActive);
+		#ifdef LBmaster_GroupDLCPlotpole
+			ctx.Write(ownerGroupTag);
+		#endif
 	}
 
 
@@ -250,6 +283,7 @@ class TerritoryHQ: ItemBase
 			return false;
 		if (!ctx.Read(m_PlaceTimestamp))
 		return false;
+		
 		// [AJOUT TOTEM]
 		if (!ctx.Read(m_RefresherTimeRemaining))
 			return false;
@@ -263,7 +297,8 @@ class TerritoryHQ: ItemBase
 			return false;
 		if (version >= 118 && !ctx.Read(m_RefresherActive))
 			return false;
-
+		if (!ctx.Read(ownerGroupTag))
+			return false;
 		CheckLoadedVariables(loaded_max_duration);
 		
 		return true;

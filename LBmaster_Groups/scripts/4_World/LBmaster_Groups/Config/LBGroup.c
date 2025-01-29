@@ -50,15 +50,31 @@ class LBGroup { /*: LBConfigBasePlayer*/
 		string tagLower = shortname + "";
 		tagLower.ToLower();
 		int count = 0;
-		foreach (TerritoryFlag flag : TerritoryFlag.all_Flags) {
-			if (!flag)
-				continue;
-			string flagTag = flag.ownerGroupTag + "";
-			flagTag.ToLower();
-			if (flagTag == tagLower) {
-				count++;
+
+		#ifdef RA_BaseBuilding_Scripts
+			foreach (TerritoryHQ flag : TerritoryHQ.all_Flags) {
+				if (!flag)
+					continue;
+				string flagTag = flag.ownerGroupTag + "";
+				flagTag.ToLower();
+				if (flagTag == tagLower) {
+					count++;
+				}
 			}
-		}
+		#else
+			foreach (TerritoryFlag flag : TerritoryFlag.all_Flags) {
+				if (!flag)
+					continue;
+				string flagTag = flag.ownerGroupTag + "";
+				flagTag.ToLower();
+				if (flagTag == tagLower) {
+					count++;
+				}
+			}
+		#endif
+
+
+		
 		LBLogger.Debug("Flagpole Count of " + shortname + ": " + count, "AdvancedGroups");
 		return count;
 	}

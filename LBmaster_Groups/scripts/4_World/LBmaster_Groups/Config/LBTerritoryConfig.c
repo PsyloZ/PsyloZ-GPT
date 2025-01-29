@@ -105,9 +105,19 @@ class LBTerritoryConfig_ : LBConfigBase {
 			tagLower.ToLower();
 		}
 		int groupTagHash = tagLower.Hash();
-		TerritoryFlag nearestHostile = TerritoryFlag.FindNearestFlag(pos, true, false, groupTagHash);
-		TerritoryFlag nearestFriendly = TerritoryFlag.FindNearestFlag(pos, true, true, groupTagHash);
-		TerritoryFlag nearest = nearestHostile;
+
+		#ifdef RA_BaseBuilding_Scripts
+			TerritoryHQ nearestHostile = TerritoryHQ.FindNearestFlag(pos, true, false, groupTagHash);
+			TerritoryHQ nearestFriendly = TerritoryHQ.FindNearestFlag(pos, true, true, groupTagHash);
+			TerritoryHQ nearest = nearestHostile;
+		#else
+			TerritoryFlag nearestHostile = TerritoryFlag.FindNearestFlag(pos, true, false, groupTagHash);
+			TerritoryFlag nearestFriendly = TerritoryFlag.FindNearestFlag(pos, true, true, groupTagHash);
+			TerritoryFlag nearest = nearestHostile;
+		#endif
+
+
+		
 		if (nearestFriendly && (!nearest || vector.Distance(pos, nearest.GetPosition()) > vector.Distance(pos, nearestFriendly.GetPosition()))) {
 			nearest = nearestFriendly;
 		}
@@ -128,7 +138,7 @@ class LBTerritoryConfig_ : LBConfigBase {
 				if (LBAdmins.Get().HasPermission("build.limit.ignore", player) && LBAdmins.Get().IsActive(player))
 					canIgnoreBuildLimit = true;
 				if (!canIgnoreBuildLimit && g_Game.IsServer()) {
-					int has = grp.GetOwnedPlotpolesCount();
+					int has = grp.ZSSS();
 					int max = grp.plotpoleLimit;
 					if (has >= max) {
 						SendPlayerNotification(player, "#lb_message_max_plotpole_reached (" + has + "/" + max + ")");

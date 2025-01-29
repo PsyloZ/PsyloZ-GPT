@@ -20,7 +20,12 @@ modded class PlayerBase {
 
 #ifdef LBmaster_GroupDLCPlotpole
 	override bool IsTargetInActiveRefresherRange(EntityAI target) {
-		TerritoryFlag nearest = TerritoryFlag.FindNearestFlag(target.GetPosition());
+
+		#ifdef RA_BaseBuilding_Scripts
+			TerritoryHQ nearest = TerritoryHQ.FindNearestFlag(target.GetPosition());
+		#else
+			TerritoryFlag nearest = TerritoryFlag.FindNearestFlag(target.GetPosition());
+		#endif
 		return nearest && nearest.m_RefresherActive && nearest.IsInRadius(target.GetPosition());
 	}
 #endif
