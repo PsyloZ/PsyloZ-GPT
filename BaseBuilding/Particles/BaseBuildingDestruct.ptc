@@ -1,0 +1,116 @@
+EffectDef {
+ Emitors {
+  EmitorDef debris {
+   ShapeType Ellipse
+   ShapeSize 2 0 2
+   ConeAngle 360 0 170
+   MaxNum 40
+   BirthRate 500
+   Material "{EFD31CE137DF4995}graphics/particles/materials/enviroment/glass_01.emat"
+   SizeMultiplier 0.05
+   SizeRND 0.15
+   RotMultiplier 150
+   StretchMultiplier 1
+   StreakFullUV 0
+   VelAngle 0
+   RandomAngle 0
+   Velocity 8
+   GravityMultiply 1
+   AnimFPS 0
+   RandomFrame 0
+   LifeTime 1.5
+   Color {
+    0 0.25 0.25 0.25 1 0.2 0.2 0.2
+   }
+   Alpha {
+    0 0.05 0.25 0.5 1 0
+   }
+   Size {
+    0 1 1 0
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+  EmitorDef debris_2 {
+   ShapeType Ellipse
+   ShapeSize 2 0 2
+   ConeAngle 360 0 170
+   MaxNum 50
+   BirthRate 500
+   Material "{84C6C29E227A50FB}graphics/particles/materials/smoke/smoke_dust_04.emat"
+   SizeMultiplier 0.1
+   SizeRND 0.15
+   RotMultiplier 150
+   StretchMultiplier 1
+   StreakFullUV 0
+   VelAngle 0
+   RandomAngle 1
+   Velocity 6
+   GravityMultiply 1
+   AnimFPS 0
+   RandomFrame 1
+   LifeTime 1.5
+   Color {
+    0 0.2 0.2 0.2 1 0.2 0.2 0.2
+   }
+   Alpha {
+    0 1 0.325 1 1 0
+   }
+   Size {
+    0 1 1 0
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+  EmitorDef smoke {
+   ShapeType Ellipse
+   ShapeSize 3 0 3
+   ConeAngle 360 0 140
+   MaxNum 30
+   BirthRate 500
+   Material "{55020E0786F83004}graphics/particles/materials/smoke/smoke_anim_01.emat"
+   SizeMultiplier 2
+   SizeRND 3.5
+   Velocity 3
+   VelocityRND 2
+   GravityMultiply -0.05
+   LifeTime 1
+   Color {
+    0 0.25 0.25 0.25 1 0.75 0.75 0.75
+   }
+   Alpha {
+    0 0 0.1 0.15 0.425 0.1 1 0
+   }
+   Size {
+    0 0.5 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+  EmitorDef Dust {
+   ShapeType Ellipse
+   ShapeSize 2 0 2
+   ConeAngle 360 0 135
+   MaxNum 20
+   BirthRate 500
+   Material "{391690195D614CE5}graphics/particles/materials/smoke/smoke_dust_02.emat"
+   SizeMultiplier 2
+   SizeRND 3
+   Velocity 2.5
+   VelocityRND 1
+   GravityMultiply 0.5
+   LifeTime 2
+   Color {
+    0 0.5 0.5 0.5 1 0.75 0.75 0.75
+   }
+   Alpha {
+    0 1 1 0
+   }
+   Size {
+    0 0.5 1 1
+   }
+   EffectTime 0.1
+   Repeat 0
+  }
+ }
+}

@@ -1,0 +1,9 @@
+enum ConstructFailType
+{
+	NONE,
+	TERRITORY,
+	NOBUILDZONE,
+	MATERIALS,
+	HEIGHT,
+	LOCKED
+};

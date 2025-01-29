@@ -1,0 +1,23 @@
+{
+    "compress": {
+        "exclude": [
+        ],
+        "include": [
+            "\\.csv$"
+        ]
+    },
+    "headers": [
+        {
+            "name": "prefix",
+            "value": "RearmedServer\\BaseBuilding"
+        },
+        {
+            "name": "Mikero",
+            "value": "DePbo.dll.9.75"
+        },
+        {
+            "name": "version",
+            "value": "24111923"
+        }
+    ]
+}
