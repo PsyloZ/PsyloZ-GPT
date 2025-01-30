@@ -44,6 +44,14 @@ class TerritoryHQ: ItemBase
 		}
 		All_HQs.Insert(this);
 
+
+		Print("-------------");
+		Print("New Territory HQ created");
+		Print(m_PlaceTimestamp);
+		Print(ownerGroupTagHash)
+		Print(ownerGroupTag)
+		Print(this.GetPosition())
+		Print("-------------");
 		// [AJOUT TOTEM] Initialisation des variables TOTEM
 		m_RefresherActive       = false;
 		m_RefresherActiveLocal  = false;
@@ -56,6 +64,7 @@ class TerritoryHQ: ItemBase
 		RegisterNetSyncVariableFloat("m_UpkeepCost");
 		RegisterNetSyncVariableFloat("m_Radius");
 		RegisterNetSyncVariableBool("m_IsUpgrading");
+		
 		if ( GetCEApi() )
 		{
 			InitRefresherData();
@@ -67,9 +76,9 @@ class TerritoryHQ: ItemBase
 
 		RegisterNetSyncVariableBool("m_RefresherActive");
 
-#ifdef SERVER
-		SetSynchDirty();
-#endif
+		#ifdef SERVER
+				SetSynchDirty();
+		#endif
 	}
 
 	void ~TerritoryHQ()
@@ -102,8 +111,8 @@ class TerritoryHQ: ItemBase
 	static TerritoryHQ FindNearestFlag(vector pos, bool checkOwner = false, bool onlyOwnedByHash = false, int groupTagHash = 0) {
 		float bestDist = -1;
 		TerritoryHQ found = null;
-		if (all_Flags) {
-			foreach (TerritoryHQ flag : all_Flags) {
+		if (All_HQs) {
+			foreach (TerritoryHQ flag : All_HQs) {
 				if (!flag || flag.IsHologram())
 					continue;
 				float dist = vector.Distance(flag.GetPosition(), pos);
@@ -143,7 +152,6 @@ class TerritoryHQ: ItemBase
 	override void EEInit()
 	{
 		super.EEInit();
-		
 #ifdef SERVER
 		if (!IsRuined())
 		{
@@ -151,10 +159,10 @@ class TerritoryHQ: ItemBase
 			m_TerritoryTrigger.SetHQ(this);
 		}
 
-#ifdef GameLabs
-		m_TerritoryHQEvent = new _Event(GetType(), "pennant", this);
-		GetGameLabs().RegisterEvent(m_TerritoryHQEvent);
-#endif
+		#ifdef GameLabs
+				m_TerritoryHQEvent = new _Event(GetType(), "pennant", this);
+				GetGameLabs().RegisterEvent(m_TerritoryHQEvent);
+		#endif
 
 		// [AJOUT TOTEM] Init une première fois
 		
@@ -298,21 +306,34 @@ class TerritoryHQ: ItemBase
 			return false;
 		if (!ctx.Read(ownerGroupTag))
 			return false;
+		SetOwnerGroup(ownerGroupTag);
 		CheckLoadedVariables(loaded_max_duration);
 		
 		return true;
 	}
 
+	void SetOwnerGroup(string tag) {
+		ownerGroupTag = tag;
+		ownerGroupTagHash = LBStringTools.ToLowerString(tag).Hash();
+	}
+
+	void ApplyPlayerGroup(string group, int groupHash)
+	{
+		ownerGroupTag = group;
+		ownerGroupTagHash = groupHash;
+		SetSynchDirty();
+	}
+
 	override void AfterStoreLoad()
 	{
 		super.AfterStoreLoad();
-		
 		if (!m_RefresherInitialized && GetCEApi())
 		{
 			InitRefresherData();
 		}
 		SetSynchDirty();
 	}
+
 	// [AJOUT TOTEM] Ajuste le temps restant si le max_duration a changé
 	void CheckLoadedVariables(int loaded_max_duration)
 	{
@@ -635,7 +656,7 @@ class TerritoryHQ: ItemBase
 	}
 
 	// works on client and server, very fast
-	static bool IsWithinTerritoryRange(Man player, vector position)
+	static bool IsWithinTerritoryRange(Man player, vector position, float additionalRadius = 0)
 	{		
 		array<TerritoryHQ> overlapped_hqs = {};
 		foreach (TerritoryHQ hq: All_HQs) {
@@ -644,7 +665,7 @@ class TerritoryHQ: ItemBase
 			}
 			
 			// player is in the zone
-			if (vector.Distance(position, hq.GetPosition()) <= hq.GetRadius()) {
+			if (vector.Distance(position, hq.GetPosition()) <= (hq.GetRadius() + additionalRadius)) {
 				return true;
 			}
 		}

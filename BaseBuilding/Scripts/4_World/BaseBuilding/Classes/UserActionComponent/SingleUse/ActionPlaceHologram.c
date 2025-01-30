@@ -110,7 +110,7 @@ class ActionPlaceHologram: ActionInstantBase
 	override void HandleReciveData(ActionReciveData action_recive_data, ActionData action_data)
 	{
 		super.HandleReciveData(action_recive_data, action_data);
-
+		Print("Inside reciveData : 113");
 		// poorly engineered system but hey, its old
 		PlaceBlueprintActionReciveData blueprint_action_recieve_data = PlaceBlueprintActionReciveData.Cast(action_recive_data);
 		PlaceHologramActionData place_blueprint_data = PlaceHologramActionData.Cast(action_data);
@@ -137,7 +137,7 @@ class ActionPlaceHologram: ActionInstantBase
 		if (!hologram.CanPlaceCurrently()) {
 			return false;
 		}
-
+		Print("Inside ActionContinue : 140");
 		BaseBuildingItemEntry upgrade = preview_item.GetUpgradeCost();		
 		if (!upgrade) {
 			return false;
@@ -160,7 +160,6 @@ class ActionPlaceHologram: ActionInstantBase
 		if (!super.ActionCondition(player, target, item)) {
 			return false;
 		}
-		
 		#ifndef SERVER		
 		BaseBuildingHologram hologram = GetHologram(item);
 		if (!hologram) {

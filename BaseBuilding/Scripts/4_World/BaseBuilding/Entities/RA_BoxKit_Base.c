@@ -22,6 +22,16 @@ class RA_BoxKit_Base: ItemBase
 		TerritoryHQ hq = TerritoryHQ.Cast(baseitem);
 		if (hq) {
 			hq.SetPlacementTimestamp(CF_Date.Now(true).DateToEpoch());
+
+			PlayerBase gamer = PlayerBase.Cast(player)
+			LBGroup grp = gamer.GetLBGroup();
+			string tagLower = "";
+			if (grp) {
+				tagLower = grp.shortname + "";
+				tagLower.ToLower();
+			}
+			int groupTagHash = tagLower.Hash();
+			hq.ApplyPlayerGroup(tagLower, groupTagHash);
 		}
 	}
 	#endif
