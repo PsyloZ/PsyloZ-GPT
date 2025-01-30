@@ -32,6 +32,16 @@ class ActionTerritoryAuthorize: ActionInteractBase
 		
 		hq.AuthorizePlayer(action_data.m_Player);
 
+		/* Print("before sethq on ");
+		if (action_data.m_Player && action_data.m_Player.GetLBGroup()) {
+			Print("Authorized on ");
+			hq.ownerGroupTagHash = action_data.m_Player.GetLBGroup().GetTagHash();
+			hq.ownerGroupTag = action_data.m_Player.GetLBGroup().shortname;
+			Print(hq.ownerGroupTagHash);
+			Print(hq.ownerGroupTag);
+}																	//******THIS WILL ALLOW ME TO CHANGE THE OWNER OF THE TERRITORY HQ
+		Print("after sethq on "); */
+
 		LogToCF(action_data.m_Player, "", "", "Authorized on " + hq.GetType() + " at " + hq.GetPosition());
 
 		if (hq.HasMaxPlayers()) {

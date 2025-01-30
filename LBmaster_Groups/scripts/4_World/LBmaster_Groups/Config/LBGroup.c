@@ -52,7 +52,7 @@ class LBGroup { /*: LBConfigBasePlayer*/
 		int count = 0;
 
 		#ifdef RA_BaseBuilding_Scripts
-			foreach (TerritoryHQ flag : TerritoryHQ.all_Flags) {
+			foreach (TerritoryHQ flag : TerritoryHQ.All_HQs) {
 				if (!flag)
 					continue;
 				string flagTag = flag.ownerGroupTag + "";
