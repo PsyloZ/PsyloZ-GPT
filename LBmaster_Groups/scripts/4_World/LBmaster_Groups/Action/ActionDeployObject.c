@@ -24,14 +24,17 @@ modded class ActionDeployObject {
 		if (!super.Can(player, target, item, condition_mask))
 			return false;
 		int type = 0;
-		if (item.IsInherited(TerritoryFlagKit)) {
-			type = 4;
-		}
+		
 		#ifdef RA_BaseBuilding_Scripts
 			if (item.IsInherited(TerritoryHQ_Kit)) {
 				type = 4;
 			}
+		#else
+			if (item.IsInherited(TerritoryFlagKit)) {
+				type = 4;
+			}
 		#endif
+		
 		vector pos = player.GetPosition();
 		if (g_Game.IsClient() && player.GetHologramLocal())
 			pos = player.GetHologramLocal().GetProjectionEntity().GetPosition();
