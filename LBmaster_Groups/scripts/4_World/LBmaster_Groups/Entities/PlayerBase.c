@@ -23,10 +23,11 @@ modded class PlayerBase {
 
 		#ifdef RA_BaseBuilding_Scripts
 			TerritoryHQ nearest = TerritoryHQ.FindNearestFlag(target.GetPosition());
+			return nearest && nearest.m_RefresherActive && nearest.IsWithinTerritoryRange(target, target.GetPosition());
 		#else
 			TerritoryFlag nearest = TerritoryFlag.FindNearestFlag(target.GetPosition());
+			return nearest && nearest.m_RefresherActive && nearest.IsInRadius(target.GetPosition());
 		#endif
-		return nearest && nearest.m_RefresherActive && nearest.IsInRadius(target.GetPosition());
 	}
 #endif
 

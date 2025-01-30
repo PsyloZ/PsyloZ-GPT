@@ -115,8 +115,6 @@ class LBTerritoryConfig_ : LBConfigBase {
 			TerritoryFlag nearestFriendly = TerritoryFlag.FindNearestFlag(pos, true, true, groupTagHash);
 			TerritoryFlag nearest = nearestHostile;
 		#endif
-
-
 		
 		if (nearestFriendly && (!nearest || vector.Distance(pos, nearest.GetPosition()) > vector.Distance(pos, nearestFriendly.GetPosition()))) {
 			nearest = nearestFriendly;
@@ -138,7 +136,7 @@ class LBTerritoryConfig_ : LBConfigBase {
 				if (LBAdmins.Get().HasPermission("build.limit.ignore", player) && LBAdmins.Get().IsActive(player))
 					canIgnoreBuildLimit = true;
 				if (!canIgnoreBuildLimit && g_Game.IsServer()) {
-					int has = grp.ZSSS();
+					int has = grp.GetOwnedPlotpolesCount();
 					int max = grp.plotpoleLimit;
 					if (has >= max) {
 						SendPlayerNotification(player, "#lb_message_max_plotpole_reached (" + has + "/" + max + ")");
@@ -156,10 +154,17 @@ class LBTerritoryConfig_ : LBConfigBase {
 				return true;
 			}
 		}
-#ifdef DIAG
-		LBLogger.Verbose("Nearest Flag at: " + pos + " is " + nearest, "Plotpole");
-#endif
-		if (type == 0 && (!nearest || !nearest.IsInRadius(pos))) {
+		
+		#ifdef DIAG
+				LBLogger.Verbose("Nearest Flag at: " + pos + " is " + nearest, "Plotpole");
+		#endif
+
+		#ifdef RA_BaseBuilding_Scripts
+			if (type == 0 && (!nearest || !nearest.IsWithinTerritoryRange(player, pos))) {
+		#else
+			if (type == 0 && (!nearest || !nearest.IsInRadius(pos))) {
+		#endif
+
 			if (forceDeployingInTerritory && !IsItemWhitelisted(itemInHands)) {
 
 				if (LBAdmins.Get().HasPermission("build.everywhere", player) && LBAdmins.Get().IsActive(player))
@@ -171,15 +176,23 @@ class LBTerritoryConfig_ : LBConfigBase {
 		}
 		if (IsDeployException(itemInHands) && (type == 1 || type == 0 || type == 3))
 			return true;
-#ifdef DIAG
-		LBLogger.Verbose("Own Group Hash: " + groupTagHash + " Tag: " + tagLower + " Flag Hash: " + nearest.ownerGroupTagHash, "Plotpole");
-#endif
+
+		#ifdef DIAG
+				LBLogger.Verbose("Own Group Hash: " + groupTagHash + " Tag: " + tagLower + " Flag Hash: " + nearest.ownerGroupTagHash, "Plotpole");
+		#endif
+
 		if (grp && nearest && groupTagHash == nearest.ownerGroupTagHash) {
 			if (LBAdmins.Get().HasPermission("groups.build.enemy", player) && LBAdmins.Get().IsActive(player))
 				return true;
 			return perms.canDoBasebuilding;
 			//nearest.ownerGroupTagHash is 0 when no group assigned
-		} else if (!nearest || nearest && nearest.ownerGroupTagHash == 0 && nearest.IsInRadius(pos, 5)) {
+		#ifdef RA_BaseBuilding_Scripts
+			} else if (!nearest || nearest && nearest.ownerGroupTagHash == 0 && nearest.IsWithinTerritoryRange(player, pos, 5)) {
+		#else
+			} else if (!nearest || nearest && nearest.ownerGroupTagHash == 0 && nearest.IsInRadius(pos, 5)) {
+		#endif
+
+
 			if (LBAdmins.Get().HasPermission("build.everywhere", player) && LBAdmins.Get().IsActive(player))
 				return true;
 			if (type == 2) // Dismantle Action
