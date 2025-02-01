@@ -5,5 +5,6 @@ enum ConstructFailType
 	NOBUILDZONE,
 	MATERIALS,
 	HEIGHT,
-	LOCKED
+	LOCKED,
+	LBREFUSED
 };
