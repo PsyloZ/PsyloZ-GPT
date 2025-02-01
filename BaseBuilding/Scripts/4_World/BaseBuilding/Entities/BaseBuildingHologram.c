@@ -322,7 +322,8 @@ class BaseBuildingHologram: Managed
 			return true;
         }
 		#endif
-		return m_CurrentPlacingMode != PlacementMode.NONE;	} 
+		return m_CurrentPlacingMode != PlacementMode.NONE;	
+	} 
 	
 	PlacementMode GetCurrentPlacingMode()
 	{

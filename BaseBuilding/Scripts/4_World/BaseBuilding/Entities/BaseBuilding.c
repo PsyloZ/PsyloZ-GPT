@@ -845,7 +845,14 @@ class BaseBuilding: ItemBase
 		if (code_lock && code_lock.IsLocked() && !code_lock.IsAuthorized(player.GetIdentity())) {
 			return ConstructFailType.LOCKED;
 		}
+		#ifdef LBmaster_GroupDLCPlotpole
+
+		if (!LBTerritoryConfig.Get.CanExecuteAction(player, position, 6, item)) {
+			return ConstructFailType.LBREFUSED;
+		}
 		
+		#endif
+
 		return ConstructFailType.NONE;
 	}
 			

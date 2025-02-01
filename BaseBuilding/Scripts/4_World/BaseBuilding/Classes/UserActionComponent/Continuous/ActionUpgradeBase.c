@@ -80,6 +80,11 @@ class ActionUpgradeBase: ActionContinuousBase
 			return false;
 		}
 		
+		if (player.GetIsAdminModeON())
+        {
+            return true;
+        }
+
 		RA_CodeLock code_lock = RA_CodeLock.Cast(base_building.FindAttachmentBySlotName("CodeLock"));
 		if (code_lock && code_lock.IsLocked() && !code_lock.IsAuthorized(action_data.m_Player.GetIdentity())) {
 			return false;
@@ -109,6 +114,11 @@ class ActionUpgradeBase: ActionContinuousBase
 		if (!upgrade) {
 			return false;
 		}
+
+		if (action_data.m_Player.GetIsAdminModeON())
+        {
+            return true;
+        }
 		
 		RA_CodeLock code_lock = RA_CodeLock.Cast(base_building.FindAttachmentBySlotName("CodeLock"));
 		if (code_lock && code_lock.IsLocked() && !code_lock.IsAuthorized(action_data.m_Player.GetIdentity())) {
@@ -135,6 +145,18 @@ class ActionUpgradeBase: ActionContinuousBase
 		if (!base_building) {
 			return false;
 		}
+
+		#ifdef AVPPAdminTools
+		if (player.GetIsAdminModeON())
+        {
+			MaterialLevel upgrade_material_level_Admin = g_Game.ConfigGetInt(string.Format("CfgVehicles %1 materialLevel", base_building.GetUpgradeType()));
+			if (!upgrade_material_level_Admin || upgrade_material_level_Admin == 0) {
+				return false;
+			}
+			m_Text = string.Format("[ADMIN] Upgrade %1", upgrade_material_level_Admin.GetFormattedName());
+            return true;
+        }
+		#endif
 
 		BaseBuildingItemEntry upgrade = base_building.GetUpgradeCost();
 		switch (BaseBuilding.CheckBuildCondition(player, base_building, upgrade)) {
@@ -193,6 +215,13 @@ class ActionUpgradeBase: ActionContinuousBase
 		if (!player) {
 			return;
 		}
+
+		if (action_data.m_Player.GetIsAdminModeON())
+        {
+            UpgradeBaseLambda(base_building, base_building.GetUpgradeType(), player).Execute();
+            return;
+        }
+
 
 		if (BaseBuilding.CheckBuildCondition(player, base_building, upgrade) != ConstructFailType.NONE) {
 			return;

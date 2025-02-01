@@ -33,6 +33,17 @@ class ActionPlaceHologram: ActionInstantBase
 		return new PlaceHologramActionData();
 	}
 	
+	void CompleteBuildPart(BaseBuilding building_base, ActionData action_data)
+    {
+        building_base.OnPlacementComplete(action_data.m_Player, building_base.GetPosition(), building_base.GetOrientation());
+		
+		ScriptRPC rpc = new ScriptRPC();
+		rpc.Write(action_data.m_Player);
+		rpc.Write(building_base.GetPosition());
+		rpc.Write(building_base.GetOrientation());
+		rpc.Send(building_base, BaseBuilding.RPC_PLACING_COMPLETE, true);
+    }
+	
 	override bool SetupAction(PlayerBase player, ActionTarget target, ItemBase item, out ActionData action_data, Param extra_data = null)
 	{
 		if (!super.SetupAction(player, target, item, action_data, extra_data)) {
@@ -122,6 +133,7 @@ class ActionPlaceHologram: ActionInstantBase
 	
 	override bool ActionConditionContinue(ActionData action_data)
 	{
+		Print("Inside ActionContinue : 140");
 		if (!super.ActionConditionContinue(action_data)) {
 			return false;
 		}
@@ -132,12 +144,15 @@ class ActionPlaceHologram: ActionInstantBase
 		if (!hologram || !preview_item) {
 			return false;
 		}
-		
+		if (action_data.m_Player.GetIsAdminModeON())
+        {
+			return true;
+        }
 		// Only putting CanPlaceCurrently in condition continue, that way text shows up properly
 		if (!hologram.CanPlaceCurrently()) {
 			return false;
 		}
-		Print("Inside ActionContinue : 140");
+		
 		BaseBuildingItemEntry upgrade = preview_item.GetUpgradeCost();		
 		if (!upgrade) {
 			return false;
@@ -170,9 +185,20 @@ class ActionPlaceHologram: ActionInstantBase
 		if (!preview_item) {
 			return false;
 		}
-					
-		BaseBuildingItemEntry upgrade = preview_item.GetUpgradeCost();			
+		Print("Inside ActionCondition : 173");
+		BaseBuildingItemEntry upgrade = preview_item.GetUpgradeCost();		
+
+		#ifdef AVPPAdminTools
+		if (player.GetIsAdminModeON())
+        {
+        	string display_name_Admin = g_Game.ConfigGetTextOut(string.Format("CfgVehicles %1 displayName", preview_item.GetUpgradeType()));
+			m_Text = string.Format("[ADMIN] Place %1", display_name_Admin);
+			return true;
+        }
+		#endif
+		
 		switch (BaseBuilding.CheckBuildCondition(player, preview_item, upgrade)) {
+			
 			case ConstructFailType.TERRITORY: {
 				m_Text = "Cannot Build (Enemy Territory)";
 				break;
@@ -194,6 +220,7 @@ class ActionPlaceHologram: ActionInstantBase
 			}
 			
 			default: {
+				Print("Inside ActionCondition : 198");
 				string display_name = g_Game.ConfigGetTextOut(string.Format("CfgVehicles %1 displayName", preview_item.GetUpgradeType()));
 				m_Text = string.Format("Place %1", display_name);
 				break;
@@ -206,6 +233,9 @@ class ActionPlaceHologram: ActionInstantBase
 
 	override void OnStartServer(ActionData action_data)
 	{
+
+
+
 		super.OnStartServer(action_data);
 		
 		PlaceHologramActionData place_hologram_data = PlaceHologramActionData.Cast(action_data);
@@ -215,15 +245,17 @@ class ActionPlaceHologram: ActionInstantBase
 			return;
 		}
 
-		/*BaseBuildingItemEntry upgrade = building_base.GetUpgradeCost();		
-		if (!upgrade) {
-			g_Game.ObjectDelete(building_base);
-			return;
-		}*/
-		
+
 		building_base.SetPosition(place_hologram_data.Position);
 		building_base.SetOrientation(place_hologram_data.Orientation);
 		building_base.Update();
+
+		if (action_data.m_Player.GetIsAdminModeON())
+        {
+			UpgradeBaseLambda(building_base, building_base.GetUpgradeType(), action_data.m_Player).Execute();
+            return;
+        }
+
 
 		//server side check to stop weird shenanigans
 		if (!TerritoryHQ.HasPermissionsAtPosition(action_data.m_Player, building_base.GetPosition()) && !building_base.CanPlaceInEnemyTerritory()) {
