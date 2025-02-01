@@ -3,6 +3,19 @@ modded class PlayerBase
 	protected bool m_IsOnLadder;
 	protected BaseBuilding_Ladder_Memory m_Ladder;
 	
+    bool m_IsAdminModeON;
+
+    void SetAdminMode(bool value)
+    {
+        m_IsAdminModeON = value;
+    }
+
+    bool GetIsAdminModeON()
+    {
+        return m_IsAdminModeON;
+    }
+
+
 	override void OnRaiseChanged(bool state)
 	{
 		super.OnRaiseChanged(state);
@@ -22,7 +35,11 @@ modded class PlayerBase
 	return true;
 #endif
 #endif
-		
+		if(m_IsAdminModeON)
+		{
+			return true;
+		}
+
 		array<EntityAI> entities = {};
 		GetInventory().EnumerateInventory(InventoryTraversalType.PREORDER, entities);
 		
@@ -46,7 +63,10 @@ modded class PlayerBase
 	return true;
 #endif
 #endif
-		
+		if(m_IsAdminModeON)
+		{
+			return true;
+		}
 		if (!HasMaterials(material)) {
 			return false;
 		}
