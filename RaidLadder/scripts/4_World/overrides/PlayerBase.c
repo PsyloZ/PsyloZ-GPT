@@ -1,4 +1,4 @@
-/* modded class PlayerBase
+modded class PlayerBase
 {
 	override void SetActions(out TInputActionMap InputActionMap)
 	{	
@@ -6,4 +6,3 @@
 		AddAction(ActionFoldLadder, InputActionMap);
 	}
 }
- */

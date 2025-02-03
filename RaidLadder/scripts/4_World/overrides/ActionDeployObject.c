@@ -1,4 +1,4 @@
-modded class ActionDeployObject
+ modded class ActionDeployObject
 {
     override void OnEndServer(ActionData action_data)
     {

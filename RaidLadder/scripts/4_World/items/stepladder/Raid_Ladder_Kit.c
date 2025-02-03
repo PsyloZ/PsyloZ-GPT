@@ -1,9 +1,9 @@
-class Chopper_Step_Ladder_2Kit extends Chopper_BaseKit
+class Raid_Ladder_Kit extends Chopper_BaseKit
 {	
 	ref protected EffectSound 		m_DeployLoopSound;
 	protected Object				m_Object;
 	
-	void Chopper_Step_Ladder_2Kit()
+	void Raid_Ladder_Kit()
 	{
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
 	}
@@ -44,7 +44,7 @@ class Chopper_Step_Ladder_2Kit extends Chopper_BaseKit
 	{
 		if ( GetGame().IsServer() )
 		{
-			Chopper_Step_Ladder_2 chopperstepladder = Chopper_Step_Ladder_2.Cast( GetGame().CreateObjectEx( "Chopper_Step_Ladder_2", position, ECE_PLACE_ON_SURFACE ) );
+			Raid_Ladder chopperstepladder = Raid_Ladder.Cast( GetGame().CreateObjectEx( "Raid_Ladder", position, ECE_PLACE_ON_SURFACE ) );
 			chopperstepladder.SetPosition( position );
 			chopperstepladder.SetOrientation( orientation );
 			//make the kit invisible, so it can be destroyed from deploy UA when action ends

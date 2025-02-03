@@ -1,15 +1,15 @@
 class CfgMods
 {
-	class SimpleRoof
+	class RaidLadder
 	{
-		dir="simpleroof";
+		dir="RaidLadder";
 		picture="";
 		action="";
 		hideName=1;
 		hidePicture=1;
-		name="SimpleRoof";
+		name="RaidLadder";
 		credits="";
-		author="Chopper";
+		author="ZolysP";
 		authorID="0";
 		version="1.0";
 		extra=0;
@@ -26,7 +26,7 @@ class CfgMods
 				value="";
 				files[]=
 				{
-					"simpleroof/scripts/4_World"
+					"RaidLadder/scripts/4_World"
 				};
 			};
 			class missionScriptModule
@@ -34,7 +34,7 @@ class CfgMods
 				value="";
 				files[]=
 				{
-					"simpleroof/scripts/5_Mission"
+					"RaidLadder/scripts/5_Mission"
 				};
 			};
 		};
@@ -42,7 +42,7 @@ class CfgMods
 };
 class CfgPatches
 {
-	class SimpleRoof
+	class RaidLadder
 	{
 		units[]={};
 		weapons[]={};
@@ -70,12 +70,12 @@ class CfgVehicles
 		reversed=0;
 		itemBehaviour=2;
 	};
-	class Chopper_Step_Ladder_2Kit: Chopper_BaseKit
+	class Raid_Ladder_Kit: Chopper_BaseKit
 	{
 		scope=2;
 		displayName="Raid Ladder Kit";
 		descriptionShort="Raid Ladder.";
-		model="\simpleroof\models\dbo_ladder.p3d";
+		model="\RaidLadder\models\dbo_ladder.p3d";
 		isMeleeWeapon=0;
 		weight=30000;
 		absorbency=0;
@@ -85,12 +85,13 @@ class CfgVehicles
 		reversed=0;
 		itemBehaviour=2;
 	};
-	class Chopper_Step_Ladder_2: Inventory_Base
+	class HouseNoDestruct;
+	class Raid_Ladder: HouseNoDestruct
 	{
 		scope=2;
 		displayName="Raid Ladder";
 		descriptionShort="Raid Ladder.";
-		model="\simpleroof\models\dbo_ladder.p3d";
+		model="\RaidLadder\models\dbo_ladder.p3d";
 		handheld="true";
 		weight=5000;
 		heavyItem=1;
@@ -111,7 +112,7 @@ class CfgVehicles
 		rotationFlags=0;
 		hiddenSelectionsTextures[]=
 		{
-			"\simpleroof\models\dbo_ladder.paa"
+			"\RaidLadder\models\dbo_ladder.paa"
 		};
 		lootTag[]=
 		{

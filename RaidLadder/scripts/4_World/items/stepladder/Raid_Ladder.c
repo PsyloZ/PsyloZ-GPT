@@ -1,4 +1,4 @@
-class Chopper_Step_Ladder_2 extends ItemBase
+class Raid_Ladder extends ItemBase
 {
 	override bool CanPutInCargo(EntityAI parent)
     {
