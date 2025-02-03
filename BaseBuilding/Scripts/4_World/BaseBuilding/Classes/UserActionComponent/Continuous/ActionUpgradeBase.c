@@ -95,6 +95,7 @@ class ActionUpgradeBase: ActionContinuousBase
 			case ConstructFailType.NOBUILDZONE: 
 			case ConstructFailType.MATERIALS:
 			case ConstructFailType.HEIGHT:
+			case ConstructFailType.LBREFUSED:
 			case ConstructFailType.LOCKED: {
 				return false;
 			}
@@ -130,6 +131,7 @@ class ActionUpgradeBase: ActionContinuousBase
 			case ConstructFailType.NOBUILDZONE: 
 			case ConstructFailType.MATERIALS:
 			case ConstructFailType.HEIGHT:
+			case ConstructFailType.LBREFUSED:
 			case ConstructFailType.LOCKED: {
 				return false;
 			}
@@ -180,6 +182,10 @@ class ActionUpgradeBase: ActionContinuousBase
 				break;
 			}
 
+			case ConstructFailType.LBREFUSED: {
+				m_Text = "REFUSED FROM LBMASTER";
+				break;
+			}
 			case ConstructFailType.LOCKED: {
 				m_Text = "#STR_RA_CANNOTUPGRADE_LOCKED";
 				break;

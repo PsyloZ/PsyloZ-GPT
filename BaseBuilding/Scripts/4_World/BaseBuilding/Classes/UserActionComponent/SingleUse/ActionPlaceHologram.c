@@ -66,13 +66,13 @@ class ActionPlaceHologram: ActionInstantBase
 		return true;
 	}
 	
-	#ifdef LBmaster_GroupDLCPlotpole
+	/* #ifdef LBmaster_GroupDLCPlotpole
 		override bool Can(PlayerBase player, ActionTarget target, ItemBase item, int condition_mask) {
 			if (!super.Can(player, target, item, condition_mask))
 				return false;
-			return LBTerritoryConfig.Get.CanExecuteAction(player, target, 1, item);
+			return LBTerritoryConfig.Get.CanExecuteAction(player, target, 0, item);
 		}
-	#endif
+	#endif */
 
 	override bool HasTarget()
 	{
@@ -162,6 +162,7 @@ class ActionPlaceHologram: ActionInstantBase
 			case ConstructFailType.TERRITORY: 				
 			case ConstructFailType.NOBUILDZONE: 				
 			case ConstructFailType.MATERIALS: 
+			case ConstructFailType.LBREFUSED: 
 			case ConstructFailType.HEIGHT: 
 				return false;
 		}
@@ -216,6 +217,10 @@ class ActionPlaceHologram: ActionInstantBase
 			
 			case ConstructFailType.HEIGHT: {
 				m_Text = "Cannot Build (Height Limit)";
+				break;
+			}
+			case ConstructFailType.LBREFUSED: {
+				m_Text = "Cannot Build (LBREFUSED)";
 				break;
 			}
 			
