@@ -111,22 +111,17 @@ modded class ItemBase
 		float health_to_remove = (m_ElapsedSinceLastUpdate / GetTimeToDecay()) * GetMaxHealth("GlobalHealth", "Health");
 
 		if (!current_hq) {
-			DecreaseHealth("GlobalHealth", "Health", health_to_remove);
+			//DecreaseHealth("GlobalHealth", "Health", health_to_remove);
 			return;
 		}
 
 		if (!current_hq.ConsumeNails(GetCostToUpkeep() * (m_ElapsedSinceLastUpdate / TimeSpan.DAY))) {
-			DecreaseHealth("GlobalHealth", "Health", health_to_remove);
-			#ifdef DIAG_DEVELOPER
-			SetDecayingState(1);
-			#endif
+			//DecreaseHealth("GlobalHealth", "Health", health_to_remove);
 		}
-		else if(GetHealth01() != 1) {
-			AddHealth("GlobalHealth", "Health", health_to_remove);
-			#ifdef DIAG_DEVELOPER
-			SetDecayingState(0);
-			#endif
-		}
+		//else if(GetHealth01() != 1) {
+			//AddHealth("GlobalHealth", "Health", health_to_remove);
+
+		//}
 	}
 	
 	//# Value used for territory decay 
