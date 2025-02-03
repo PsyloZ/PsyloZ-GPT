@@ -183,37 +183,6 @@ modded class BaseBuilding: ItemBase
 		return results;
 	}
 
-	static ConstructFailType CheckBuildCondition(notnull PlayerBase player, notnull BaseBuilding base_building, BaseBuildingItemEntry required_materials = null)
-	{
-		// Territory check
-		vector position = base_building.GetPosition();
-		if (!TerritoryHQ.HasPermissionsAtPosition(player, position) && !base_building.CanPlaceInEnemyTerritory()) {
-			return ConstructFailType.TERRITORY;
-		}
-		
-		// NBZ check
-		if (!NoBuildZone.HasPermissionsAtPosition(position) && !base_building.CanPlaceInEnemyTerritory()) {
-			return ConstructFailType.NOBUILDZONE;
-		}
-		
-#ifdef DIAG_DEVELOPER
-#else
-#ifndef REARMED_DEATHMATCH
-		// Materials check, DIAG and DM don't need this
-		if (required_materials && !player.HasMaterials(required_materials)) {
-			return ConstructFailType.MATERIALS;
-		}
-#endif
-#endif
-		
-
-		RA_CodeLock code_lock = RA_CodeLock.Cast(base_building.FindAttachmentBySlotName("CodeLock"));
-		if (code_lock && code_lock.IsLocked() && !code_lock.IsAuthorized(player.GetIdentity())) {
-			return ConstructFailType.LOCKED;
-		}
-		
-		return ConstructFailType.NONE;
-	}
 
 	bool CanPermanentlyDismantle()
 	{
