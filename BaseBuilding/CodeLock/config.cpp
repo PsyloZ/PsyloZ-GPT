@@ -35,7 +35,7 @@ class CfgVehicles
 			"orange",
 			"red"
 		};
-		itemSize[]={1,2};
+		itemSize[]={2,2};
 		weight=400;
 		inventorySlot[]=
 		{

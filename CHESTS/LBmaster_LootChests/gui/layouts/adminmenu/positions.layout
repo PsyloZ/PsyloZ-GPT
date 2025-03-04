@@ -1,0 +1,156 @@
+FrameWidgetClass rootFrame {
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ scriptclass "LBMenuPopulator"
+ {
+  PanelWidgetClass PanelWidget0 {
+   ignorepointer 1
+   size 1200 800
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   {
+    MapWidgetClass mapwidget {
+     size 0.5 1
+     halign right_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+    }
+    XComboBoxWidgetClass combo_list {
+     size 0.5 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    ButtonWidgetClass btn_add {
+     position 0 20
+     size 0.25 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add New"
+    }
+    ButtonWidgetClass btn_del {
+     position 0.25 20
+     size 0.25 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Delete"
+    }
+    EditBoxWidgetClass edit_name {
+     position 150 40
+     size 350 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+    }
+    TextWidgetClass TextWidget0 {
+     ignorepointer 1
+     position 0 40
+     size 150 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Name: "
+     "text halign" right
+    }
+    TextListboxWidgetClass list_positions {
+     position 0 160
+     size 0.5 580
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     lines 29
+    }
+    ButtonWidgetClass btn_add_pos {
+     position 0 740
+     size 0.16 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add Positions..."
+    }
+    ButtonWidgetClass btn_del_pos {
+     position 0.1666 740
+     size 0.16 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Delete"
+    }
+    TextWidgetClass txt_info {
+     ignorepointer 1
+     position 0 760
+     size 0.5 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    TextWidgetClass TextWidget1 {
+     ignorepointer 1
+     position 0 60
+     size 150 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Comment: "
+     "text halign" right
+    }
+    MultilineEditBoxWidgetClass edit_comment {
+     position 0 80
+     size 0.5 80
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     font "gui/fonts/Metron22"
+     "exact text" 0
+     lines 20
+    }
+    XComboBoxWidgetClass combo_previewItem {
+     size 0.5 20
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    ButtonWidgetClass btn_add_all {
+     position 0.3333 740
+     size 0.16 20
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Add for Building"
+    }
+   }
+  }
+ }
+ {
+  ScriptParamsClass {
+  }
+ }
+}

@@ -1,0 +1,18 @@
+{
+    "compress": {
+        "exclude": [
+        ],
+        "include": [
+        ]
+    },
+    "headers": [
+        {
+            "name": "prefix",
+            "value": "LBmaster_LootChests"
+        },
+        {
+            "name": "Version",
+            "value": "1.1.1:stable"
+        }
+    ]
+}

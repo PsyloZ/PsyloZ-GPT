@@ -16,7 +16,7 @@ class TerritoryHQ: ItemBase
 	protected int m_MaxPlayers = 5;
 	protected int m_PlaceTimestamp = int.MAX;
 	protected float m_UpkeepCost;
-	protected float m_Radius = RearmedConstants.BASE_RADIUS;
+	protected float m_Radius = 36.0;
 	protected bool m_IsUpgrading;
 
 
@@ -43,15 +43,6 @@ class TerritoryHQ: ItemBase
 			All_HQs = {};
 		}
 		All_HQs.Insert(this);
-
-
-		Print("-------------");
-		Print("New Territory HQ created");
-		Print(m_PlaceTimestamp);
-		Print(ownerGroupTagHash)
-		Print(ownerGroupTag)
-		Print(this.GetPosition())
-		Print("-------------");
 		// [AJOUT TOTEM] Initialisation des variables TOTEM
 		m_RefresherActive       = false;
 		m_RefresherActiveLocal  = false;
@@ -90,21 +81,21 @@ class TerritoryHQ: ItemBase
 		
 		delete m_AuthorizationList;
 		
-#ifdef SERVER
-		if (g_Game && m_TerritoryTrigger)
-		{
-			g_Game.ObjectDelete(m_TerritoryTrigger);
-		}
-#endif
-		
-#ifdef GameLabs
-		if (GetGameLabs())
-		{
-			GetGameLabs().RemoveEvent(m_TerritoryHQEvent);		
-		}
-		
-		delete m_TerritoryHQEvent;
-#endif
+		#ifdef SERVER
+			if (g_Game && m_TerritoryTrigger)
+			{
+				g_Game.ObjectDelete(m_TerritoryTrigger);
+			}
+		#endif
+			
+		#ifdef GameLabs
+			if (GetGameLabs())
+			{
+				GetGameLabs().RemoveEvent(m_TerritoryHQEvent);		
+			}
+			
+			delete m_TerritoryHQEvent;
+		#endif
 	}
 
 
@@ -184,7 +175,6 @@ class TerritoryHQ: ItemBase
 		
 		if (m_Radius != m_TerritoryTrigger.GetCollisionRadius())
 		{
-			Print("[Kowalski] radius isn't the same size, onceupdate worth");
 			m_TerritoryTrigger.SetRadius(m_Radius);
 		}
 
@@ -316,6 +306,14 @@ class TerritoryHQ: ItemBase
 		ownerGroupTag = tag;
 		ownerGroupTagHash = LBStringTools.ToLowerString(tag).Hash();
 	}
+	// [AJOUT TOTEM] Ajuste le temps restant si le max_duration a changé
+	void CheckLoadedVariables(int loaded_max_duration)
+	{
+		if (loaded_max_duration != m_FlagRefresherMaxDuration && m_FlagRefresherMaxDuration > 0)
+		{
+			m_RefresherTimeRemaining = Math.Round((m_RefresherTimeRemaining * m_FlagRefresherMaxDuration) / loaded_max_duration);
+		}
+	}
 
 	void ApplyPlayerGroup(string group, int groupHash)
 	{
@@ -334,14 +332,7 @@ class TerritoryHQ: ItemBase
 		SetSynchDirty();
 	}
 
-	// [AJOUT TOTEM] Ajuste le temps restant si le max_duration a changé
-	void CheckLoadedVariables(int loaded_max_duration)
-	{
-		if (loaded_max_duration != m_FlagRefresherMaxDuration && m_FlagRefresherMaxDuration > 0)
-		{
-			m_RefresherTimeRemaining = Math.Round((m_RefresherTimeRemaining * m_FlagRefresherMaxDuration) / loaded_max_duration);
-		}
-	}
+	
 	bool HasEquity()
 	{
 		// Nails are deleted when they hit zero
