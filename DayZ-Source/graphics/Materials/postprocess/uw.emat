@@ -1,4 +1,0 @@
-material "graphics/materials/postprocess/uw": UnderWaterEffect
-{
-	WaterPlaneLuminance 0.05
-}

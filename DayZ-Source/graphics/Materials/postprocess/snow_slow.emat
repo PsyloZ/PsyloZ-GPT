@@ -1,9 +1,0 @@
-SnowEffect {
- SunMaskMat "{FAF56DD689E895BE}Graphics/Materials/postprocess/godrayssunmask.emat"
- ParticlesNumImagesU 4
- ParticlesNumImagesV 4
- ParticlesTex "{EC7234D99C9EF1C7}Graphics/Textures/postprocess/SnowFlakesSheets_BCA.edds" 
- ParticlesSqueeze 4.5
- ParticlesColor 1 0.9294 0.8392 1
- ParticlesColorRandomize 0 0 0 0.1176
-}

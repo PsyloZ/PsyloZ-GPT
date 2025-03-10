@@ -1,4 +1,0 @@
-material "graphics/materials/postprocess/fxaa": FXAAEffect
-{
-	Full true
-}
